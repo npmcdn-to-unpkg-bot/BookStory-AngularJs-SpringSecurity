@@ -37,5 +37,6 @@
     <orderEntry type="library" name="Spring Security-3.2.5" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="gson-2.2.2" level="project" />
+    <orderEntry type="library" name="postgresql-9.4-1202.jdbc4.jar" level="project" />
   </component>
 </module>

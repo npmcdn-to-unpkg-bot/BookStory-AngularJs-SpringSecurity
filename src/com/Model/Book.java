@@ -6,8 +6,8 @@ import javax.persistence.*;
  * Created by dexter on 2/6/16.
  */
 @Entity
-@Table(name = "employee")
-public class Employee {
+@Table(name = "books")
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
@@ -82,7 +82,7 @@ public class Employee {
         this.state = state;
     }
 
-    public Employee(String firstName, String lastName, String mobile, String email, String password, String state) {
+    public Book(String firstName, String lastName, String mobile, String email, String password, String state) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobile = mobile;
@@ -91,7 +91,7 @@ public class Employee {
         this.state = state;
     }
 
-    public Employee(Long id, String firstName, String lastName, String mobile, String email, String password, String state) {
+    public Book(Long id, String firstName, String lastName, String mobile, String email, String password, String state) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -101,12 +101,12 @@ public class Employee {
         this.state = state;
     }
 
-    public Employee() {
+    public Book() {
     }
 
     @Override
     public String toString() {
-        return "EmployeeController{" +
+        return "Book{" +
                 "state='" + state + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

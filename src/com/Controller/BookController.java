@@ -1,8 +1,8 @@
 package com.Controller;
 
 import com.HashCode.MD5;
-import com.Model.Employee;
-import com.Service.EmployeeService;
+import com.Model.Book;
+import com.Service.BookService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,13 +16,13 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/employee")
-public class EmployeeController {
+public class BookController {
 
     @Autowired
-    private EmployeeService employeeService;
+    private BookService bookService;
 
     @RequestMapping(value = "/add")
-    public Employee addOrUpdateEmployee(HttpServletRequest request) {
+    public Book addOrUpdateEmployee(HttpServletRequest request) {
         String hideId = request.getParameter("hideId");
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
@@ -31,21 +31,21 @@ public class EmployeeController {
         String password = request.getParameter("password");
         password = MD5.getMD5(password);
         String state = request.getParameter("state");
-        Employee employee;
+        Book book;
         if (!(hideId.equals(""))) {
             Long id = Long.parseLong(hideId);
-            employee = new Employee(id, firstName, lastName, mobile, email, password, state);
-            employeeService.updateEmployee(employee);
+            book = new Book(id, firstName, lastName, mobile, email, password, state);
+            bookService.updateEmployee(book);
         } else {
-            employee = new Employee(firstName, lastName, mobile, email, password, state);
-            employeeService.saveEmployee(employee);
+            book = new Book(firstName, lastName, mobile, email, password, state);
+            bookService.saveEmployee(book);
         }
-        return employee;
+        return book;
     }
 
     @RequestMapping(value = "/allList")
     public String allListEmployee() {
-        List employees = employeeService.allEmployeeList();
+        List employees = bookService.allEmployeeList();
         Gson gson = new Gson();
         return gson.toJson(employees, employees.getClass());
     }
@@ -54,24 +54,24 @@ public class EmployeeController {
     public void deleteEmployee(HttpServletRequest request) {
         String i = request.getParameter("id");
         Long id = Long.parseLong(i);
-        employeeService.removeEmployee(id);
+        bookService.removeEmployee(id);
     }
 
 
     @RequestMapping(value = "/getElementById")
-    public Employee getElementById(HttpServletRequest request) {
+    public Book getElementById(HttpServletRequest request) {
         String i = request.getParameter("id");
         Long id = Long.parseLong(i);
-        return employeeService.getElementById(id);
+        return bookService.getElementById(id);
     }
 
     @RequestMapping(value = "/getSearchEmployees")
     public String getSearchEmployee(HttpServletRequest request) {
         String text = request.getParameter("text");
-        List<Employee> employeeList = employeeService.searchEmployeeList(text);
-        if (employeeList != null) {
+        List<Book> bookList = bookService.searchEmployeeList(text);
+        if (bookList != null) {
             Gson gson = new Gson();
-            return gson.toJson(employeeList, employeeList.getClass());
+            return gson.toJson(bookList, bookList.getClass());
         } else {
             return "not found employee";
         }

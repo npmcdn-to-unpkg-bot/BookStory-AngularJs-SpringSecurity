@@ -1,7 +1,7 @@
 package com.DAOImpl;
 
-import com.DAO.EmployeeDAO;
-import com.Model.Employee;
+import com.DAO.BookDAO;
+import com.Model.Book;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -14,13 +14,13 @@ import java.util.List;
  * Created by dexter on 2/7/16.
  */
 @Repository("EmployeeDAO")
-public class EmployeeDAOImpl implements EmployeeDAO {
+public class BookDAOImpl implements BookDAO {
 
     Session session;
     Transaction transaction;
 
     @SuppressWarnings("unchecked")
-    public List<Employee> allEmployeeList() {
+    public List<Book> allEmployeeList() {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
@@ -31,7 +31,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @SuppressWarnings("unchecked")
-    public List<Employee> searchEmployeeList(String text) {
+    public List<Book> searchEmployeeList(String text) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
@@ -43,47 +43,47 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         ).list();
     }
 
-    public Employee getElementById(Long id) {
+    public Book getElementById(Long id) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        return (Employee) session.get(Employee.class, id);
+        return (Book) session.get(Book.class, id);
     }
 
     public void removeEmployee(Long id) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        Employee employee = getElementById(id);
-        if (employee != null) {
-            session.delete(employee);
+        Book book = getElementById(id);
+        if (book != null) {
+            session.delete(book);
         }
         transaction.commit();
         session.close();
     }
 
-    public void saveEmployee(Employee employee) {
+    public void saveEmployee(Book book) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        session.save(employee);
+        session.save(book);
         transaction.commit();
         session.close();
     }
 
-    public void updateEmployee(Employee employee) {
+    public void updateEmployee(Book book) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        Employee updateEmployee = getElementById(employee.getId());
-        updateEmployee.setId(employee.getId());
-        updateEmployee.setFirstName(employee.getFirstName());
-        updateEmployee.setLastName(employee.getLastName());
-        updateEmployee.setEmail(employee.getEmail());
-        updateEmployee.setMobile(employee.getMobile());
-        updateEmployee.setPassword(employee.getPassword());
-        updateEmployee.setState(employee.getState());
-        session.update(updateEmployee);
+        Book updateBook = getElementById(book.getId());
+        updateBook.setId(book.getId());
+        updateBook.setFirstName(book.getFirstName());
+        updateBook.setLastName(book.getLastName());
+        updateBook.setEmail(book.getEmail());
+        updateBook.setMobile(book.getMobile());
+        updateBook.setPassword(book.getPassword());
+        updateBook.setState(book.getState());
+        session.update(updateBook);
         transaction.commit();
         session.close();
     }

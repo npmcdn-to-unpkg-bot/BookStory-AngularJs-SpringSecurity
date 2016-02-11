@@ -91,9 +91,6 @@
       </div>
     </form>
   </div>
-  <%--<div id="load">--%>
-    <%--<img src="assets/images/loading-img.gif" style="margin-left: 133px; margin-top: 234px;">--%>
-  <%--</div>--%>
   <div id="table">
     <div class="alert alert-success" id="aler" hidden>
       <strong>Success </strong> data saved ...!
