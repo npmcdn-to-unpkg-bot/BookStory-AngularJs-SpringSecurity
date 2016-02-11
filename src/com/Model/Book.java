@@ -12,108 +12,85 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
-    @Column(name = "firstName")
-    private String firstName;
-    @Column(name = "lastName")
-    private String lastName;
-    @Column(name = "mobile")
-    private String mobile;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "password")
-    private String password;
-    @Column(name = "state")
-    private String state;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "genre_id")
+    private Long genre_id;
+    @Column(name = "author_id")
+    private Long author_id;
+    @Column(name = "language")
+    private String language;
+    @Column(name = "created_date")
+    private String created_date;
 
-    public Long getId() {
-        return id;
+    public Book() {
+    }
+
+    public Book(String name, Long genre_id, Long author_id, String language, String created_date) {
+        this.name = name;
+        this.genre_id = genre_id;
+        this.author_id = author_id;
+        this.language = language;
+        this.created_date = created_date;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setGenre_id(Long genre_id) {
+        this.genre_id = genre_id;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setAuthor_id(Long author_id) {
+        this.author_id = author_id;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String gender) {
-        this.password = gender;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
 
-    public String getState() {
-        return state;
+    public void setCreated_date(String created_date) {
+        this.created_date = created_date;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public Long getId() {
+        return id;
     }
 
-    public Book(String firstName, String lastName, String mobile, String email, String password, String state) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mobile = mobile;
-        this.email = email;
-        this.password = password;
-        this.state = state;
+    public String getName() {
+        return name;
     }
 
-    public Book(Long id, String firstName, String lastName, String mobile, String email, String password, String state) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mobile = mobile;
-        this.email = email;
-        this.password = password;
-        this.state = state;
+    public Long getGenre_id() {
+        return genre_id;
     }
 
-    public Book() {
+    public Long getAuthor_id() {
+        return author_id;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getCreated_date() {
+        return created_date;
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "state='" + state + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", id=" + id +
+                "id='" + id + '\'' +
+                ", genre_id='" + genre_id + '\'' +
+                ", author_id='" + author_id + '\'' +
+                ", language='" + language + '\'' +
+                ", created_date='" + created_date + '\'' +
                 '}';
     }
 }

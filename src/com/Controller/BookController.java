@@ -1,6 +1,5 @@
 package com.Controller;
 
-import com.HashCode.MD5;
 import com.Model.Book;
 import com.Service.BookService;
 import com.google.gson.Gson;
@@ -15,37 +14,28 @@ import java.util.List;
  * Created by dexter on 2/6/16.
  */
 @RestController
-@RequestMapping(value = "/employee")
+@RequestMapping(value = "/books/")
 public class BookController {
 
     @Autowired
     private BookService bookService;
 
     @RequestMapping(value = "/add")
-    public Book addOrUpdateEmployee(HttpServletRequest request) {
-        String hideId = request.getParameter("hideId");
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String mobile = request.getParameter("mobile");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        password = MD5.getMD5(password);
-        String state = request.getParameter("state");
+    public Book addBook(HttpServletRequest request) {
+        String name = request.getParameter("name");
+        Long author_id = Long.parseLong(request.getParameter("author_id"));
+        Long genre_id = Long.parseLong(request.getParameter("genre_id"));
+        String language = request.getParameter("language");
+        String created_date = request.getParameter("created_date");
         Book book;
-        if (!(hideId.equals(""))) {
-            Long id = Long.parseLong(hideId);
-            book = new Book(id, firstName, lastName, mobile, email, password, state);
-            bookService.updateEmployee(book);
-        } else {
-            book = new Book(firstName, lastName, mobile, email, password, state);
-            bookService.saveEmployee(book);
-        }
+        book = new Book(name, author_id, genre_id, language, created_date);
+        bookService.saveBook(book);
         return book;
     }
 
     @RequestMapping(value = "/allList")
     public String allListEmployee() {
-        List employees = bookService.allEmployeeList();
+        List employees = bookService.allBookList();
         Gson gson = new Gson();
         return gson.toJson(employees, employees.getClass());
     }
@@ -54,7 +44,7 @@ public class BookController {
     public void deleteEmployee(HttpServletRequest request) {
         String i = request.getParameter("id");
         Long id = Long.parseLong(i);
-        bookService.removeEmployee(id);
+        bookService.removeBook(id);
     }
 
 
@@ -68,7 +58,7 @@ public class BookController {
     @RequestMapping(value = "/getSearchEmployees")
     public String getSearchEmployee(HttpServletRequest request) {
         String text = request.getParameter("text");
-        List<Book> bookList = bookService.searchEmployeeList(text);
+        List<Book> bookList = bookService.searchBookList(text);
         if (bookList != null) {
             Gson gson = new Gson();
             return gson.toJson(bookList, bookList.getClass());

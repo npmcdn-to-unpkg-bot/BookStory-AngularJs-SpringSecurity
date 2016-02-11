@@ -21,5 +21,6 @@
       1001
     </property>
     <mapping class="com.Model.Book"/>
+    <mapping class="com.Model.User"/>
   </session-factory>
 </hibernate-configuration>
