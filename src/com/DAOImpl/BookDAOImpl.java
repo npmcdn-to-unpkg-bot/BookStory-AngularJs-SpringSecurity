@@ -20,7 +20,7 @@ public class BookDAOImpl implements BookDAO {
     Transaction transaction;
 
     @SuppressWarnings("unchecked")
-    public List<Book> allBookList() {
+    public List<Book> allList() {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
@@ -31,14 +31,13 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @SuppressWarnings("unchecked")
-    public List<Book> searchBookList(String text) {
+    public List<Book> searchList(String text) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
         return session.createQuery("from Book where upper(name) like '%" + text.toUpperCase() + "%'" +
                 "or upper(genre_id) like '%" + text.toUpperCase() + "%'"
                 + "or upper(language) like '%" + text.toUpperCase() + "%'"
-                + "or upper(order_count) like '%" + text.toUpperCase() + "%'"
                 + "or upper(created_date) like '%" + text.toUpperCase() + "%'"
         ).list();
     }
@@ -50,7 +49,7 @@ public class BookDAOImpl implements BookDAO {
         return (Book) session.get(Book.class, id);
     }
 
-    public void removeBook(Long id) {
+    public void remove(Long id) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
@@ -62,7 +61,7 @@ public class BookDAOImpl implements BookDAO {
         session.close();
     }
 
-    public void saveBook(Book book) {
+    public void save(Book book) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
@@ -71,18 +70,5 @@ public class BookDAOImpl implements BookDAO {
         session.close();
     }
 
-    public void updateBook(Book book) {
-        Configuration configuration = new AnnotationConfiguration();
-        session = configuration.configure().buildSessionFactory().openSession();
-        transaction = session.beginTransaction();
-        Book updateBook = getElementById(book.getId());
-        updateBook.setId(book.getId());
-        updateBook.setName(book.getName());
-        updateBook.setAuthor_id(book.getAuthor_id());
-        updateBook.setCreated_date(book.getCreated_date());
-        updateBook.setLanguage(book.getLanguage());
-        session.update(updateBook);
-        transaction.commit();
-        session.close();
-    }
+    public void update(Book book) {}
 }

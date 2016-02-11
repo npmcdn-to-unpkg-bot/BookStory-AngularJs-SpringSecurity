@@ -7,11 +7,16 @@ import java.util.List;
 /**
  * Created by dexter on 2/6/16.
  */
-public interface BookService {
-    List<Book> allBookList();
-    List<Book> searchBookList(String text);
+public interface BookService extends BaseService<Book> {
+    List<Book> allList();
+
+    List<Book> searchList(String text);
+
     Book getElementById(Long id);
-    void removeBook(Long id);
-    void saveBook(Book book);
-    void updateBook(Book book);
+
+    void remove(Long id);
+
+    void save(Book book);
+
+    void update(Book book);
 }

@@ -22,5 +22,8 @@
     </property>
     <mapping class="com.Model.Book"/>
     <mapping class="com.Model.User"/>
+    <mapping class="com.Model.Author"/>
+    <mapping class="com.Model.Genre"/>
+    <mapping class="com.Model.Order"/>
   </session-factory>
 </hibernate-configuration>

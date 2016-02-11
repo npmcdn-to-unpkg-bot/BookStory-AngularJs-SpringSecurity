@@ -19,12 +19,11 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookDAO employeeDAO;
 
-    public List<Book> allBookList() {
-        return employeeDAO.allBookList();
+    public List<Book> allList() {
+        return employeeDAO.allList();
     }
 
-    @Override
-    public List<Book> searchBookList(String text) {
+    public List<Book> searchList(String text) {
         return null;
     }
 
@@ -32,16 +31,16 @@ public class BookServiceImpl implements BookService {
         return employeeDAO.getElementById(id);
     }
 
-    public void removeBook(Long id) {
-        employeeDAO.removeBook(id);
+    public void remove(Long id) {
+        employeeDAO.remove(id);
 
     }
 
-    public void saveBook(Book book) {
-        employeeDAO.saveBook(book);
+    public void save(Book book) {
+        employeeDAO.save(book);
     }
 
-    public void updateBook(Book book) {
-        employeeDAO.updateBook(book);
+    public void update(Book book) {
+        employeeDAO.update(book);
     }
 }
