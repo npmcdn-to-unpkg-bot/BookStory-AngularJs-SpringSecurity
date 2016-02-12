@@ -24,7 +24,10 @@ public class BookDAOImpl implements BookDAO {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        List books = session.createQuery("from Book ").list();
+
+        List books = session.createSQLQuery("select b.id, author_id, genre_id, name, language, created_date from Book  AS b" +
+                "inner join Author ON Author.id = b.id " +
+                " inner  join Genre ON Genre.id = b .id").list();
         transaction.commit();
         session.close();
         return books;
@@ -70,7 +73,8 @@ public class BookDAOImpl implements BookDAO {
         session.close();
     }
 
-    public void update(Book book) {}
+    public void update(Book book) {
+    }
 
     @Override
     public Boolean ifExists(Book book) {

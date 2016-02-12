@@ -82,11 +82,11 @@
 <script>
     angular.module('myapp', []).controller('bookController', function ($scope, $http) {
         $scope.contacts = [];
-//        $scope.allList = function () {
-//            $http.get('/books/allList').success(function (data) {
-//                $scope.contacts = data;
-//            })
-//        }
+        $scope.allList = function () {
+            $http.get('/books/allList').success(function (data) {
+                $scope.contacts = data;
+            })
+        }
     });
     angular.bootstrap(document, ['myapp']);
 </script>

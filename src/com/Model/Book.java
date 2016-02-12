@@ -34,7 +34,7 @@ public class Book {
     }
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre;
 
     public Genre getGenre() {
@@ -45,7 +45,7 @@ public class Book {
         this.genre = genre;
     }
 
-    private Set<User> users = new HashSet<>(0);
+    private Set<User> users = new HashSet<>();
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "orders", joinColumns = @JoinColumn(name = "book_id"),
