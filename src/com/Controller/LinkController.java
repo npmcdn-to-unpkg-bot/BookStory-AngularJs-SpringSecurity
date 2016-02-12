@@ -34,4 +34,9 @@ public class LinkController {
     public ModelAndView user() {
         return new ModelAndView("WEB-INF/pages/user");
     }
+
+    @RequestMapping(value = "orderOfUser")
+    public ModelAndView orderOfUser(){
+        return new ModelAndView("WEB-INF/pages/orderOfUser");
+    }
 }

@@ -16,12 +16,15 @@ public class User {
     private String firstName;
     @Column(name = "lastName")
     private String lastName;
+    @Column(name = "email")
+    private String email;
     @Column(name = "mobile")
     private String mobile;
     @Column(name = "password")
     private String password;
 
-    public User(String firstName, String lastName, String mobile, String password) {
+    public User(String firstName, String lastName, String email, String mobile, String password) {
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobile = mobile;
@@ -29,6 +32,14 @@ public class User {
     }
 
     public User() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setId(Long id) {
