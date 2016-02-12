@@ -25,8 +25,17 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @ManyToMany(mappedBy = "users")
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "users")
     private Set<Book> books = new HashSet<>();
+
     public User(String firstName, String lastName, String email, String mobile, String password) {
         this.email = email;
         this.firstName = firstName;

@@ -1,6 +1,8 @@
 package com.Model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by dexter on 2/12/16.
@@ -15,9 +17,20 @@ public class Author {
     @Column(name = "firstName")
     private String firstName;
     @Column(name = "lastName")
-    private String  lastName;
+    private String lastName;
     @Column(name = "email")
     private String email;
+
+    @OneToMany(mappedBy = "authors")
+    private Set<Author> authors = new HashSet<>();
+
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
 
     public Author(String firstName, String lastName, String email) {
         this.firstName = firstName;
