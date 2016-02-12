@@ -19,4 +19,7 @@ public interface BookService extends BaseService<Book> {
     void save(Book book);
 
     void update(Book book);
+
+    Boolean ifExists(Book book);
+
 }

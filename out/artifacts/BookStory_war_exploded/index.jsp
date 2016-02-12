@@ -29,7 +29,7 @@
     <script src="${pageContext.request.contextPath}/assets/bower_components/bootbox/bootbox.min.js"
             type="application/javascript"></script>
 </head>
-<body>
+<body ng-controller="bookController" ng-init="allList()">
 <a href="/login" style="padding-left: 1300px">Log in</a>
 
 <div id="Main" style="padding-left: 120px">
@@ -66,11 +66,29 @@
             </thead>
 
             <tbody id="tbodyId">
-            <tr>
+            <tr ng-repeat="contact in contacts">
+                <%--{{contact.id}}--%>
+                <%--{{contact.name}}--%>
+                <%--{{contact.author}}--%>
+                <%--{{contact.language}}--%>
+                <%--{{contact.genre}}--%>
+                <%--{{contact.order}}--%>
+                <%--{{contact.created_date}}--%>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+<script>
+    angular.module('myapp', []).controller('bookController', function ($scope, $http) {
+        $scope.contacts = [];
+//        $scope.allList = function () {
+//            $http.get('/books/allList').success(function (data) {
+//                $scope.contacts = data;
+//            })
+//        }
+    });
+    angular.bootstrap(document, ['myapp']);
+</script>
 </body>
 </html>

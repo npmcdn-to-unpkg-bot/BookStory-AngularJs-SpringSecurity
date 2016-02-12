@@ -1,6 +1,8 @@
 package com.Controller;
 
 import com.Model.User;
+import com.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,8 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {
-//    @RequestMapping(value = "/add")
-//    public User newUser() {
-//
-//    }
+
+    @Autowired
+    UserService userService;
+
+    @RequestMapping(value = "/add")
+    public User addNewUser() {
+
+    }
 }
