@@ -1,6 +1,8 @@
 package com.Model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by dexter on 2/12/16.
@@ -23,6 +25,8 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @ManyToMany(mappedBy = "users")
+    private Set<Book> books = new HashSet<>();
     public User(String firstName, String lastName, String email, String mobile, String password) {
         this.email = email;
         this.firstName = firstName;

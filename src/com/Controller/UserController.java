@@ -17,6 +17,6 @@ public class UserController {
 
     @RequestMapping(value = "/add")
     public User addNewUser() {
-
+        return new User();
     }
 }

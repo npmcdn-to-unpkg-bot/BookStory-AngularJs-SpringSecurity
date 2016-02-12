@@ -43,9 +43,11 @@ public class Book {
         this.genre = genre;
     }
 
+    private Set<User> users = new HashSet<>(0);
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<User> users = new HashSet<>(0);
+    @JoinTable(name = "orders", joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
 
     public Set<User> getUsers() {
         return users;
@@ -102,6 +104,7 @@ public class Book {
         return "Book{" +
                 "id='" + id + '\'' +
                 "name='" + name + '\'' +
+                ", language='" + language + '\'' +
                 ", language='" + language + '\'' +
                 ", created_date='" + created_date + '\'' +
                 '}';

@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by dexter on 2/7/16.
  */
-@Repository("BookDAO")
+@Repository("EmployeeDAO")
 public class BookDAOImpl implements BookDAO {
 
     Session session;
@@ -24,7 +24,6 @@ public class BookDAOImpl implements BookDAO {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-
         List books = session.createQuery("from Book ").list();
         transaction.commit();
         session.close();
@@ -71,8 +70,7 @@ public class BookDAOImpl implements BookDAO {
         session.close();
     }
 
-    public void update(Book book) {
-    }
+    public void update(Book book) {}
 
     @Override
     public Boolean ifExists(Book book) {
