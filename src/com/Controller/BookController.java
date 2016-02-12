@@ -28,14 +28,14 @@ public class BookController {
         String language = request.getParameter("language");
         String created_date = request.getParameter("created_date");
         Book book;
-        book = new Book(name, author_id, genre_id, language, created_date);
-        bookService.saveBook(book);
+        book = new Book(name, language, created_date);
+        bookService.save(book);
         return book;
     }
 
     @RequestMapping(value = "/allList")
     public String allListEmployee() {
-        List employees = bookService.allBookList();
+        List employees = bookService.allList();
         Gson gson = new Gson();
         return gson.toJson(employees, employees.getClass());
     }
@@ -44,7 +44,7 @@ public class BookController {
     public void deleteEmployee(HttpServletRequest request) {
         String i = request.getParameter("id");
         Long id = Long.parseLong(i);
-        bookService.removeBook(id);
+        bookService.remove(id);
     }
 
 
@@ -58,7 +58,7 @@ public class BookController {
     @RequestMapping(value = "/getSearchEmployees")
     public String getSearchEmployee(HttpServletRequest request) {
         String text = request.getParameter("text");
-        List<Book> bookList = bookService.searchBookList(text);
+        List<Book> bookList = bookService.searchList(text);
         if (bookList != null) {
             Gson gson = new Gson();
             return gson.toJson(bookList, bookList.getClass());

@@ -14,4 +14,24 @@ public class LinkController {
     public ModelAndView mainPage() {
         return new ModelAndView("index");
     }
+
+    @RequestMapping(value = "/login")
+    public ModelAndView login() {
+        return new ModelAndView("WEB-INF/pages/login");
+    }
+
+    @RequestMapping(value = "/admin")
+    public ModelAndView admin() {
+        return new ModelAndView("WEB-INF/pages/admin");
+    }
+
+    @RequestMapping(value = "/register")
+    public ModelAndView register() {
+        return new ModelAndView("WEB-INF/pages/register");
+    }
+
+    @RequestMapping(value = "/user")
+    public ModelAndView user() {
+        return new ModelAndView("WEB-INF/pages/user");
+    }
 }

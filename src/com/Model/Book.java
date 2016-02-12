@@ -1,6 +1,8 @@
 package com.Model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by dexter on 2/6/16.
@@ -14,22 +16,50 @@ public class Book {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "genre_id")
-    private Long genre_id;
-    @Column(name = "author_id")
-    private Long author_id;
     @Column(name = "language")
     private String language;
     @Column(name = "created_date")
     private String created_date;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Author author;
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Genre genre;
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<User> users = new HashSet<>(0);
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
     public Book() {
     }
 
-    public Book(String name, Long genre_id, Long author_id, String language, String created_date) {
+    public Book(String name, String language, String created_date) {
         this.name = name;
-        this.genre_id = genre_id;
-        this.author_id = author_id;
         this.language = language;
         this.created_date = created_date;
     }
@@ -40,14 +70,6 @@ public class Book {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setGenre_id(Long genre_id) {
-        this.genre_id = genre_id;
-    }
-
-    public void setAuthor_id(Long author_id) {
-        this.author_id = author_id;
     }
 
     public void setLanguage(String language) {
@@ -67,14 +89,6 @@ public class Book {
         return name;
     }
 
-    public Long getGenre_id() {
-        return genre_id;
-    }
-
-    public Long getAuthor_id() {
-        return author_id;
-    }
-
     public String getLanguage() {
         return language;
     }
@@ -87,8 +101,7 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "id='" + id + '\'' +
-                ", genre_id='" + genre_id + '\'' +
-                ", author_id='" + author_id + '\'' +
+                "name='" + name + '\'' +
                 ", language='" + language + '\'' +
                 ", created_date='" + created_date + '\'' +
                 '}';
