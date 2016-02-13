@@ -20,10 +20,15 @@ public class Book {
     private String language;
     @Column(name = "created_date", nullable = false)
     private String created_date;
+    @Column(name = "order_count", nullable = false)
+    private String order_count;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    @JoinColumn(name = "author_id", nullable = false, referencedColumnName = "id")
     private Author author;
+
+    public Book() {
+    }
 
     public Author getAuthor() {
         return author;
@@ -34,7 +39,7 @@ public class Book {
     }
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "genre_id", referencedColumnName = "id")
+    @JoinColumn(name = "genre_id", nullable = false, referencedColumnName = "id")
     private Genre genre;
 
     public Genre getGenre() {
@@ -45,22 +50,36 @@ public class Book {
         this.genre = genre;
     }
 
-    private Set<User> users = new HashSet<>();
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "orders", joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-
-    public Set<User> getUsers() {
-        return users;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Book() {
+    public String getOrder_count() {
+        return order_count;
     }
+
+    public void setOrder_count(String order_count) {
+        this.order_count = order_count;
+    }
+
+    //    private Set<User> users = new HashSet<>(0);
+//
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    public Set<User> getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(Set<User> users) {
+//        this.users = users;
+//    }
+//
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
+    private User user;
 
     public Book(String name, String language, String created_date) {
         this.name = name;

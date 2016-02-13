@@ -1,8 +1,6 @@
 package com.Model;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by dexter on 2/12/16.
@@ -25,16 +23,28 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    public Set<Book> getBooks() {
-        return books;
+//    public Set<Book> getBooks() {
+//        return books;
+//    }
+//
+//    public void setBooks(Set<Book> books) {
+//        this.books = books;
+//    }
+//
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    private Set<Book> books = new HashSet<>();
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id", nullable = false, referencedColumnName = "id")
+    private Book book;
+
+    public Book getBook() {
+        return book;
     }
 
-    public void setBooks(Set<Book> books) {
-        this.books = books;
+    public void setBook(Book book) {
+        this.book = book;
     }
-
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "users")
-    private Set<Book> books = new HashSet<>();
 
     public User(String firstName, String lastName, String email, String mobile, String password) {
         this.email = email;

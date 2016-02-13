@@ -1,14 +1,16 @@
 package com.DAO;
 
+import com.Model.Book;
 import com.Model.User;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dexter on 2/12/16.
  */
 public interface UserDAO extends BaseDAO<User> {
-    List<User> allList();
+    List<Book> allList();
 
     List<User> searchList(String text);
 

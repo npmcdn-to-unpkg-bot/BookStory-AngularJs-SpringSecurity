@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <style>
-
 </style>
 <head>
     <title>Registration Page</title>
@@ -45,7 +44,7 @@
                 <div class="collapset navbar-collapse" id="bs-example-navbar-collapse-2">
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group" id="#id_form_group" style="padding-left: 150px">
-                            <input type="text" class="form-control" placeholder="Search" id="search"
+                            <input type="text" class="form-control" placeholder="Search" id="search" ng-model="searchText"
                                    autocomplete="off">
                         </div>
                     </form>
@@ -66,14 +65,14 @@
             </thead>
 
             <tbody id="tbodyId">
-            <tr ng-repeat="contact in contacts">
-                <%--{{contact.id}}--%>
-                <%--{{contact.name}}--%>
-                <%--{{contact.author}}--%>
-                <%--{{contact.language}}--%>
-                <%--{{contact.genre}}--%>
-                <%--{{contact.order}}--%>
-                <%--{{contact.created_date}}--%>
+            <tr ng-repeat="contact in contacts | filter: searchText" >
+                <td ng-bind="contact.Book.id"></td>
+                <td ng-bind="contact.Book.name"></td>
+                <td ng-bind="contact.Book.author.firstName"></td>
+                <td ng-bind="contact.Book.language"></td>
+                <td ng-bind="contact.Book.genre.name"></td>
+                <td ng-bind="contact.Book.created_date"></td>
+                <td ng-bind="contact.Book.order_count"></td>
             </tr>
             </tbody>
         </table>
@@ -85,6 +84,7 @@
         $scope.allList = function () {
             $http.get('/books/allList').success(function (data) {
                 $scope.contacts = data;
+                console.log($scope.contacts);
             })
         }
     });

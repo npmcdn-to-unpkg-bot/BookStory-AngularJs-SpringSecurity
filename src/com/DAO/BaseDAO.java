@@ -1,13 +1,16 @@
 package com.DAO;
 
+import com.Model.Book;
+
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dexter on 2/12/16.
  */
 public interface BaseDAO<T> {
 
-    List<T> allList();
+    List<Book> allList();
 
     T getElementById(Long id);
 

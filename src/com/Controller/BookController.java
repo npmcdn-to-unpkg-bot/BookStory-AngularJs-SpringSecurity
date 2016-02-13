@@ -35,7 +35,7 @@ public class BookController {
 
     @RequestMapping(value = "/allList")
     public String allListEmployee() {
-        List employees = bookService.allList();
+        List<Book> employees = bookService.allList();
         Gson gson = new Gson();
         return gson.toJson(employees, employees.getClass());
     }

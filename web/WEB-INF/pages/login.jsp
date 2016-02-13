@@ -33,7 +33,7 @@
     <script src="${pageContext.request.contextPath}/assets/bower_components/bootbox/bootbox.min.js"
             type="application/javascript"></script>
 </head>
-<body>
+<body ng-controller="userController">
 <div class="Register_Menu" id="registerMenu" style="padding-top: 77px">
     <h4 style="padding-left: 595px">
         <pre style="width: 200px; text-align: center">Register Form</pre>
@@ -46,7 +46,7 @@
             Email
             <div class="input-group">
                 <input type="tel" name="email" maxlength="50" id="email"
-                       placeholder="Email" class="form-control">
+                       placeholder="Email" class="form-control" ng-model="user.email">
             </div>
         </div>
 
@@ -54,7 +54,7 @@
             Password
             <div class="input-group">
                 <input type="password" name="password" maxlength="50" id="password"
-                       placeholder="Password" class="form-control">
+                       placeholder="Password" class="form-control" ng-model="user.password">
             </div>
         </div>
         <br>
@@ -62,11 +62,29 @@
 
         <div class="input-group" id="id_form_click">
             <div class="controls">
-                <button type="button" class="btn" onclick="saveEmployee()">Ok</button>
+                <button type="button" class="btn" ng-click="checkLogin(user)">Ok</button>
                 <button type="reset" class="btn">Reset</button>
             </div>
         </div>
     </form>
 </div>
+<script>
+    angular.module('myapp', []).controller('userController', function ($scope, $http) {
+        $scope.contacts = [];
+        $scope.checkLogin = function (user) {
+            console.log(user);
+            $http({
+                url: '/users/check',
+                method: 'GET',
+                params: user
+            }).then(function successCallback(response) {
+                console.log('success');
+            }, function errorCallBack(response) {
+                console.log(response);
+            });
+        }
+    });
+    angular.bootstrap(document, ['myapp']);
+</script>
 </body>
 </html>

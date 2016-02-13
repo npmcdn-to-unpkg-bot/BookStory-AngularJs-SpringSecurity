@@ -1,10 +1,12 @@
 package com.DAOImpl;
 
 import com.DAO.UserDAO;
+import com.Model.Book;
 import com.Model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dexter on 2/12/16.
@@ -13,7 +15,7 @@ import java.util.List;
 public class UserDAOImpl implements UserDAO {
 
     @Override
-    public List<User> allList() {
+    public List<Book> allList() {
         return null;
     }
 

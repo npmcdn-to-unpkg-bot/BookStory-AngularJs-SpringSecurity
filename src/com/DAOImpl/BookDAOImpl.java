@@ -2,13 +2,14 @@ package com.DAOImpl;
 
 import com.DAO.BookDAO;
 import com.Model.Book;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dexter on 2/7/16.
@@ -24,10 +25,14 @@ public class BookDAOImpl implements BookDAO {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
+        String sql = ("select b.id,  b.author_id, b.order_count, a.firstname || ',' || a.lastname AS FIO, b.name, b.genre_id, g.name, b.language, b.created_date from books b" +
+                " inner join authors a ON a.id = b.author_id " +
+                " inner  join genres g ON g.id = b.genre_id;");
 
-        List books = session.createSQLQuery("select b.id, author_id, genre_id, name, language, created_date from Book  AS b" +
-                "inner join Author ON Author.id = b.id " +
-                " inner  join Genre ON Genre.id = b .id").list();
+        SQLQuery sqlQuery = session.createSQLQuery(sql);
+        sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        sqlQuery.addEntity(Book.class);
+        List<Book> books = sqlQuery.list();
         transaction.commit();
         session.close();
         return books;
