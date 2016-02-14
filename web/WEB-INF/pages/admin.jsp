@@ -66,7 +66,6 @@
                     <select class="form-control" style="width: 194px">
                         <option ng-bind="author.firstName + ' ' + author.lastName"
                                 ng-repeat="author in authors"></option>
-                        <option ng-bind="genre.name" ng-repeat="genre in genres"></option>
                     </select>
                 </div>
             </div>
@@ -190,13 +189,17 @@
                 title: "Genre of name",
                 size: 'small',
                 callback: function (result) {
+                    console.log(result);
                     if (result) {
                         $http({
                             url: '/genres/add',
-                            method: 'GET',
-                            params: result
+                            method: 'POST',
+                            params: {
+                                name: result
+                            }
                         }).then(function successCallback(response) {
-                            console.log('success');
+                            angular.reloadWithDebugInfo();
+                            console.log((result));
                         }, function errorCallBack(response) {
                             console.log(response);
                         });
@@ -208,26 +211,49 @@
         };
 
         $scope.createAuthor = function () {
-            bootbox.prompt({
-                title: "Author of First Name",
-                title: "Author of Last Name",
-                title: "Author of email",
-                size: 'small',
-                callback: function (result) {
-                    if (result) {
-                        $http({
-                            url: '/authors/add',
-                            method: 'GET',
-                            params: result
-                        }).then(function successCallback(response) {
-                            console.log('success');
-                        }, function errorCallBack(response) {
-                            console.log(response);
-                        });
-                    } else {
-                        console.log(result);
+//            bootbox.prompt({
+//                title: "Author of First Name",
+//                title: "Author of Last Name",
+//                title: "Author of email",
+//                size: 'small',
+//                callback: function (result) {
+//                    if (result) {
+//                        $http({
+//                            url: '/authors/add',
+//                            method: 'GET',
+//                            params: result
+//                        }).then(function successCallback(response) {
+//                            console.log('success');
+//                        }, function errorCallBack(response) {
+//                            console.log(response);
+//                        });
+//                    } else {
+//                        console.log(result);
+//                    }
+//                }
+//            });
+            var box = bootbox.dialog({
+                title: 'Author information',
+                message: "<input type='text' class='form-control' ng-model='firstName' id='firstName' placeholder='first' autofocus/>" +
+                "<input type='text' class='form-control' id='lastName' ng-model='lastName' placeholder='last' autofocus/>" +
+                "<input type='text' class='form-control' id='emailText' ng-model='emailText' value='okay' placeholder='email' autofocus/>",
+                buttons: [{
+                    label: 'cancel',
+                    callback: function () {
+                        alert('cancel');
                     }
-                }
+                },
+                    {
+                        label: 'ok',
+                        callback: function () {
+//                            console.log(angular.element(document.querySelector('#fistName')).val());
+//                            console.log(angular.element(document.querySelector('#lastName'))).val();
+//                            console.log(angular.element(document.querySelector('#emailText'))).val();
+                        }
+                    }]
+            });
+            box.bind('shown.bs.modal', function () {
+                box.find("input").focus();
             });
         }
     });
