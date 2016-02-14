@@ -19,4 +19,6 @@ public interface UserDAO extends BaseDAO<User> {
     void update(User user);
 
     Boolean ifExists(String email, String password);
+
+    Boolean ifExists(String email);
 }

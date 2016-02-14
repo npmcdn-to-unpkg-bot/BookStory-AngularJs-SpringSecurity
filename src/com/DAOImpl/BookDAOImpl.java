@@ -14,7 +14,7 @@ import java.util.Set;
 /**
  * Created by dexter on 2/7/16.
  */
-@Repository("EmployeeDAO")
+@Repository("BookDAO")
 public class BookDAOImpl implements BookDAO {
 
     Session session;
@@ -36,18 +36,6 @@ public class BookDAOImpl implements BookDAO {
         transaction.commit();
         session.close();
         return books;
-    }
-
-    @SuppressWarnings("unchecked")
-    public List<Book> searchList(String text) {
-        Configuration configuration = new AnnotationConfiguration();
-        session = configuration.configure().buildSessionFactory().openSession();
-        transaction = session.beginTransaction();
-        return session.createQuery("from Book where upper(name) like '%" + text.toUpperCase() + "%'" +
-                "or upper(name) like '%" + text.toUpperCase() + "%'"
-                + "or upper(language) like '%" + text.toUpperCase() + "%'"
-                + "or upper(created_date) like '%" + text.toUpperCase() + "%'"
-        ).list();
     }
 
     public Book getElementById(Long id) {
@@ -78,8 +66,7 @@ public class BookDAOImpl implements BookDAO {
         session.close();
     }
 
-    public void update(Book book) {
-    }
+    public void update(Book book) {}
 
     @Override
     public Boolean ifExists(String email) {

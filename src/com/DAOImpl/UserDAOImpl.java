@@ -39,6 +39,13 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void save(User user) {
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        System.out.println(user.getId());
+        session.save(user);
+        transaction.commit();
+        session.close();
     }
 
     @Override
@@ -47,11 +54,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Boolean ifExists(String object) {
+    public Boolean ifExists(String email) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        String sql = ("select * from users WHERE users.email = " + object);
+        String sql = ("select * from users WHERE users.email = '" + email + "'");
         SQLQuery sqlQuery = session.createSQLQuery(sql);
         sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         sqlQuery.addEntity(User.class);

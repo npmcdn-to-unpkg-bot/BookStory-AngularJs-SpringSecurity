@@ -40,27 +40,27 @@
     </h4>
     <br>
 
-    <form style="padding-left: 600px">
+    <form style="padding-left: 600px" action="/users/add", method="get">
 
         <div class="input-group">
             First Name
             <div class="input-group">
                 <input type="text" id="firstName" name="firstName" maxlength="50"
-                       placeholder="First Name" class="form-control">
+                       placeholder="First Name" class="form-control" ng-model="user.firstName">
             </div>
         </div>
         <div class="input-group">
             Last Name
             <div class="input-group">
                 <input type="text" name="lastName" maxlength="50" id="lastName"
-                       placeholder="Last Name" class="form-control">
+                       placeholder="Last Name" class="form-control" ng-model="user.lastName">
             </div>
         </div>
         <div class="input-group">
             Email
             <div class="input-group">
                 <input type="email" name="email" maxlength="50" id="email"
-                       placeholder="Email" class="form-control">
+                       placeholder="Email" class="form-control" ng-model="user.email">
             </div>
         </div>
 
@@ -68,7 +68,7 @@
             Mobile
             <div class="input-group">
                 <input type="tel" name="mobile" maxlength="50" id="mobile"
-                       placeholder="Mobile" class="form-control">
+                       placeholder="Mobile" class="form-control" ng-model="user.mobile">
             </div>
         </div>
 
@@ -76,7 +76,7 @@
             Password
             <div class="input-group">
                 <input type="password" name="password" maxlength="50" id="password"
-                       placeholder="Password" class="form-control">
+                       placeholder="Password" class="form-control" ng-model="user.password">
             </div>
         </div>
         <br>
@@ -84,7 +84,7 @@
 
         <div class="input-group" id="id_form_click">
             <div class="controls">
-                <button type="button" class="btn" onclick="saveEmployee()">Ok</button>
+                <button type="submit" class="btn">Ok</button>
                 <button type="reset" class="btn">Reset</button>
             </div>
         </div>

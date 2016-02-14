@@ -80,7 +80,10 @@
                 <td ng-bind="contact.Book.genre.name"></td>
                 <td ng-bind="contact.Book.created_date"></td>
                 <td ng-bind="contact.Book.order_count"></td>
-                <td class="glyphicon glyphicon-saved" ng-click="notify_success()" style="cursor: pointer;"></td>
+                <td>
+                    <span class="glyphicon glyphicon-saved" ng-click="notify_success()"
+                          style="cursor: pointer;"></span>
+                </td>
             </tr>
             </tbody>
         </table>

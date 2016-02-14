@@ -1,11 +1,11 @@
 package com.Controller;
 
+import com.Model.User;
 import com.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +31,26 @@ public class UserController {
             response.sendRedirect("/user");
         } else {
             response.sendRedirect("/error");
+        }
+
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public void add(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+        String mobile = request.getParameter("mobile");
+        String password = request.getParameter("password");
+        User user = new User(firstName, lastName, email, mobile, password);
+        Boolean exist = userService.ifExists(email);
+        if (!exist) {
+            userService.save(user);
+            request.getSession().setAttribute("username", email);
+            response.sendRedirect("/user");
+        } else {
+            request.getSession().setAttribute("notify", "user already exists");
+            response.sendRedirect("/register");
         }
     }
 }

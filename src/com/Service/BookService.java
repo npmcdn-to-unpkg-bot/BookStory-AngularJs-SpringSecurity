@@ -11,8 +11,6 @@ import java.util.Set;
 public interface BookService extends BaseService<Book> {
     List<Book> allList();
 
-    List<Book> searchList(String text);
-
     Book getElementById(Long id);
 
     void remove(Long id);

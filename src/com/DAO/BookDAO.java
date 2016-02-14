@@ -11,8 +11,6 @@ import java.util.Set;
 public interface BookDAO extends BaseDAO<Book> {
     List<Book> allList();
 
-    List<Book> searchList(String text);
-
     Book getElementById(Long id);
 
     void remove(Long id);

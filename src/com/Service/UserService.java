@@ -1,6 +1,5 @@
 package com.Service;
 
-import com.Model.Book;
 import com.Model.User;
 
 import java.util.List;
@@ -18,6 +17,8 @@ public interface UserService {
     void save(User user);
 
     void update(User user);
+
+    Boolean ifExists(String email);
 
     Boolean ifExists(String email, String password);
 

@@ -24,10 +24,6 @@ public class BookServiceImpl implements BookService {
         return employeeDAO.allList();
     }
 
-    public List<Book> searchList(String text) {
-        return null;
-    }
-
     public Book getElementById(Long id) {
         return employeeDAO.getElementById(id);
     }

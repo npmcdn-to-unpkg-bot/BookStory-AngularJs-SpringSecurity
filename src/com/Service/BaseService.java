@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public interface BaseService<T> {
 
-    List<Book> allList();
+    List<T> allList();
 
     T getElementById(Long id);
 

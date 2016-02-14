@@ -29,11 +29,11 @@
 </head>
 <body ng-controller="bookController" ng-init="allList()">
 <div>
-<span style="padding-left: 1000px"> Welcome to <b>
+<span style="padding-left: 500px"> Welcome to <b>
     <%= request.getSession().getAttribute("username")%>
 </b>
     </span>
-    <a href="/logout" style="margin-left: 88px">logout</a>
+    <a href="/logout" style="margin-left: 500px">logout</a>
 </div>
 
 <div id="Main" style="padding-left: 120px">
@@ -80,7 +80,10 @@
                 <td ng-bind="contact.Book.genre.name"></td>
                 <td ng-bind="contact.Book.created_date"></td>
                 <td ng-bind="contact.Book.order_count"></td>
-                <td class="glyphicon glyphicon-saved" ng-click="notify_success()" style="cursor: pointer;"></td>
+                <td>
+                    <span class="glyphicon glyphicon-saved" ng-click="notify_success()"
+                          style="cursor: pointer;"></span>
+                </td>
             </tr>
             </tbody>
         </table>

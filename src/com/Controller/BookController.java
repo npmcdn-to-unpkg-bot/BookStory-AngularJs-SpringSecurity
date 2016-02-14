@@ -20,18 +20,18 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(value = "/add")
-    public Book addBook(HttpServletRequest request) {
-        String name = request.getParameter("name");
-        Long author_id = Long.parseLong(request.getParameter("author_id"));
-        Long genre_id = Long.parseLong(request.getParameter("genre_id"));
-        String language = request.getParameter("language");
-        String created_date = request.getParameter("created_date");
-        Book book;
-        book = new Book(name, language, created_date);
-        bookService.save(book);
-        return book;
-    }
+//    @RequestMapping(value = "/add")
+//    public Book addBook(HttpServletRequest request) {
+//        String name = request.getParameter("name");
+//        Long author_id = Long.parseLong(request.getParameter("author_id"));
+//        Long genre_id = Long.parseLong(request.getParameter("genre_id"));
+//        String language = request.getParameter("language");
+//        String created_date = request.getParameter("created_date");
+//        Book book;
+//        book = new Book(name, language, created_date);
+//        bookService.save(book);
+//        return book;
+//    }
 
     @RequestMapping(value = "/allList")
     public String allListEmployee() {
@@ -39,20 +39,20 @@ public class BookController {
         Gson gson = new Gson();
         return gson.toJson(employees, employees.getClass());
     }
-
-    @RequestMapping(value = "/delete")
-    public void deleteEmployee(HttpServletRequest request) {
-        String i = request.getParameter("id");
-        Long id = Long.parseLong(i);
-        bookService.remove(id);
-    }
-
-
-    @RequestMapping(value = "/getElementById")
-    public Book getElementById(HttpServletRequest request) {
-        String i = request.getParameter("id");
-        Long id = Long.parseLong(i);
-        return bookService.getElementById(id);
-    }
+//
+//    @RequestMapping(value = "/delete")
+//    public void deleteEmployee(HttpServletRequest request) {
+//        String i = request.getParameter("id");
+//        Long id = Long.parseLong(i);
+//        bookService.remove(id);
+//    }
+//
+//
+//    @RequestMapping(value = "/getElementById")
+//    public Book getElementById(HttpServletRequest request) {
+//        String i = request.getParameter("id");
+//        Long id = Long.parseLong(i);
+//        return bookService.getElementById(id);
+//    }
 
 }
