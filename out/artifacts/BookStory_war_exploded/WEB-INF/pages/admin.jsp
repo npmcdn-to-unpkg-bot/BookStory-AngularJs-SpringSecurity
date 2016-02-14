@@ -64,6 +64,8 @@
                 Select Author
                 <div class="input-group">
                     <select class="form-control" style="width: 194px">
+                        <option ng-bind="author.firstName + ' ' + author.lastName"
+                                ng-repeat="author in authors"></option>
                         <option ng-bind="genre.name" ng-repeat="genre in genres"></option>
                     </select>
                 </div>
@@ -72,7 +74,7 @@
             <div class="input-group">
                 Or Create Author
                 <div class="input-group" style="padding-left: 36px">
-                    <input type="button" value="create" class="btn" style="width: 111px">
+                    <input type="button" value="create" class="btn" style="width: 111px" ng-click="createAuthor()">
                 </div>
             </div>
 
@@ -80,15 +82,14 @@
                 Select Genre
                 <div class="input-group">
                     <select class="form-control" style="width: 194px">
-                        <option ng-bind="author.firstName + ' ' + author.lastName"
-                                ng-repeat="author in authors"></option>
+                        <option ng-bind="genre.name" ng-repeat="genre in genres"></option>
                     </select>
                 </div>
             </div>
             <div class="input-group">
                 Or Create Genre
                 <div class="input-group" style="padding-left: 36px">
-                    <input type="button" value="create" class="btn" style="width: 111px">
+                    <input type="button" value="create" class="btn" style="width: 111px" ng-click="createGenre()">
                 </div>
             </div>
 
@@ -182,8 +183,55 @@
                 $scope.genres = data;
                 console.log($scope.genres);
             })
+        };
+
+        $scope.createGenre = function () {
+            bootbox.prompt({
+                title: "Genre of name",
+                size: 'small',
+                callback: function (result) {
+                    if (result) {
+                        $http({
+                            url: '/genres/add',
+                            method: 'GET',
+                            params: result
+                        }).then(function successCallback(response) {
+                            console.log('success');
+                        }, function errorCallBack(response) {
+                            console.log(response);
+                        });
+                    } else {
+                        console.log(result);
+                    }
+                }
+            });
+        };
+
+        $scope.createAuthor = function () {
+            bootbox.prompt({
+                title: "Author of First Name",
+                title: "Author of Last Name",
+                title: "Author of email",
+                size: 'small',
+                callback: function (result) {
+                    if (result) {
+                        $http({
+                            url: '/authors/add',
+                            method: 'GET',
+                            params: result
+                        }).then(function successCallback(response) {
+                            console.log('success');
+                        }, function errorCallBack(response) {
+                            console.log(response);
+                        });
+                    } else {
+                        console.log(result);
+                    }
+                }
+            });
         }
     });
+
     angular.bootstrap(document, ['myapp']);
 </script>
 </body>
