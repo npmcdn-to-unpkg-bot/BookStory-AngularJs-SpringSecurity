@@ -64,10 +64,7 @@
                 Select Author
                 <div class="input-group">
                     <select class="form-control" style="width: 194px">
-                        <option>Bahodir</option>
-                        <option>Javohir</option>
-                        <option>Zafar</option>
-                        <option>Bekzod</option>
+                        <option ng-bind="genre.name" ng-repeat="genre in genres"></option>
                     </select>
                 </div>
             </div>
@@ -100,7 +97,7 @@
 
             <div class="input-group" id="id_form_click">
                 <div class="controls">
-                    <button type="button" class="btn" onclick="saveEmployee()">Ok</button>
+                    <button type="button" class="btn">Ok</button>
                     <button type="reset" class="btn">Reset</button>
                 </div>
             </div>
@@ -168,6 +165,7 @@
     angular.module('myapp', []).controller('bookController', function ($scope, $http) {
         $scope.contacts = [];
         $scope.authors = [];
+        $scope.genres = [];
         $scope.allList = function () {
             $http.get('/books/allList').success(function (data) {
                 $scope.contacts = data;
@@ -177,6 +175,12 @@
             $http.get("/authors/allList").success(function (data) {
                 $scope.authors = data;
                 console.log($scope.authors);
+            });
+
+            $http.get("/genres/allList").success(function (data) {
+                console.log(data);
+                $scope.genres = data;
+                console.log($scope.genres);
             })
         }
     });
