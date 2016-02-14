@@ -240,7 +240,6 @@
                 buttons: [{
                     label: 'cancel',
                     callback: function () {
-                        alert('cancel');
                     }
                 },
                     {

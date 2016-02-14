@@ -30,7 +30,7 @@ public class UserController {
             request.getSession().setAttribute("username", email);
             response.sendRedirect("/user");
         } else {
-            response.sendRedirect("/error");
+            response.sendRedirect("/login");
         }
 
     }

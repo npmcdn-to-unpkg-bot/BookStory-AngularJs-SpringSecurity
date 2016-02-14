@@ -40,7 +40,7 @@
     </h4>
     <br>
 
-    <form style="padding-left: 600px" action="/users/add", method="get">
+    <form style="padding-left: 600px" action="/users/add" , method="get">
 
         <div class="input-group">
             First Name
