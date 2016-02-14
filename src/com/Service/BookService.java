@@ -21,6 +21,6 @@ public interface BookService extends BaseService<Book> {
 
     void update(Book book);
 
-    Boolean ifExists(Book book);
+    Boolean ifExists(String name);
 
 }

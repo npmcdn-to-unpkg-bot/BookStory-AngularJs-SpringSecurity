@@ -50,25 +50,11 @@ public class Book {
         this.genre = genre;
     }
 
-    public User getUser() {
-        return user;
-    }
+//    private Set<User> users = new HashSet<>(0);
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getOrder_count() {
-        return order_count;
-    }
-
-    public void setOrder_count(String order_count) {
-        this.order_count = order_count;
-    }
-
-    //    private Set<User> users = new HashSet<>(0);
-//
 //    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "orders", joinColumns = {@JoinColumn(name = "book_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "user_id")})
 //    public Set<User> getUsers() {
 //        return users;
 //    }
@@ -76,10 +62,7 @@ public class Book {
 //    public void setUsers(Set<User> users) {
 //        this.users = users;
 //    }
-//
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
-    private User user;
+
 
     public Book(String name, String language, String created_date) {
         this.name = name;
@@ -128,6 +111,8 @@ public class Book {
                 ", language='" + language + '\'' +
                 ", language='" + language + '\'' +
                 ", created_date='" + created_date + '\'' +
+                ", genre_name='" + getGenre().getName() + '\'' +
+                ", author_name='" + getAuthor().getFirstName() + " " + getAuthor().getLastName() + '\'' +
                 '}';
     }
 }

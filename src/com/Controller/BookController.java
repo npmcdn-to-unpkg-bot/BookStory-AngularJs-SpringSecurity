@@ -14,7 +14,7 @@ import java.util.List;
  * Created by dexter on 2/6/16.
  */
 @RestController
-@RequestMapping(value = "/books/")
+@RequestMapping(value = "/books")
 public class BookController {
 
     @Autowired
@@ -55,15 +55,4 @@ public class BookController {
         return bookService.getElementById(id);
     }
 
-    @RequestMapping(value = "/getSearchEmployees")
-    public String getSearchEmployee(HttpServletRequest request) {
-        String text = request.getParameter("text");
-        List<Book> bookList = bookService.searchList(text);
-        if (bookList != null) {
-            Gson gson = new Gson();
-            return gson.toJson(bookList, bookList.getClass());
-        } else {
-            return "not found employee";
-        }
-    }
 }

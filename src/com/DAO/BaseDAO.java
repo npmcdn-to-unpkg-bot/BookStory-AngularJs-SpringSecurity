@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public interface BaseDAO<T> {
 
-    List<Book> allList();
+    List<T> allList();
 
     T getElementById(Long id);
 
@@ -20,5 +20,5 @@ public interface BaseDAO<T> {
 
     void update(T object);
 
-    Boolean ifExists(T object);
+    Boolean ifExists(String object);
 }

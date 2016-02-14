@@ -46,7 +46,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Boolean ifExists(Book book) {
-        return employeeDAO.ifExists(book);
+    public Boolean ifExists(String name) {
+        return employeeDAO.ifExists(name);
     }
 }

@@ -1,10 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-<style>
 
-</style>
 <head>
-    <title>Registration Page</title>
+    <title>User Page</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>
@@ -29,7 +27,15 @@
     <script src="${pageContext.request.contextPath}/assets/bower_components/bootbox/bootbox.min.js"
             type="application/javascript"></script>
 </head>
-<body>
+<body ng-controller="bookController" ng-init="allList()">
+<div>
+<span style="padding-left: 500px"> Welcome to <b>
+    <%= request.getSession().getAttribute("username")%>
+</b>
+    </span>
+    <a href="/logout" style="margin-left: 500px">logout</a>
+</div>
+
 <div id="Main" style="padding-left: 120px">
     <div id="table">
         <nav class="navbar navbar-default" id="id_navbar-default">
@@ -44,6 +50,7 @@
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group" id="#id_form_group" style="padding-left: 150px">
                             <input type="text" class="form-control" placeholder="Search" id="search"
+                                   ng-model="searchText"
                                    autocomplete="off">
                         </div>
                     </form>
@@ -65,11 +72,34 @@
             </thead>
 
             <tbody id="tbodyId">
-            <tr>
+            <tr ng-repeat="contact in contacts | filter: searchText">
+                <td ng-bind="contact.Book.id"></td>
+                <td ng-bind="contact.Book.name"></td>
+                <td ng-bind="contact.Book.author.firstName"></td>
+                <td ng-bind="contact.Book.language"></td>
+                <td ng-bind="contact.Book.genre.name"></td>
+                <td ng-bind="contact.Book.created_date"></td>
+                <td ng-bind="contact.Book.order_count"></td>
+                <td class="glyphicon glyphicon-saved" ng-click="notify_success()" style="cursor: pointer;"></td>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+<script>
+    angular.module('myapp', []).controller('bookController', function ($scope, $http) {
+        $scope.contacts = [];
+        $scope.allList = function () {
+            $http.get('/books/allList').success(function (data) {
+                $scope.contacts = data;
+                console.log($scope.contacts);
+            })
+        };
+        $scope.notify_success = function () {
+            alert('add');
+        }
+    });
+    angular.bootstrap(document, ['myapp']);
+</script>
 </body>
 </html>

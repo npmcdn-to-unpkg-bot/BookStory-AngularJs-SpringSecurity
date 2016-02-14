@@ -33,14 +33,14 @@
     <script src="${pageContext.request.contextPath}/assets/bower_components/bootbox/bootbox.min.js"
             type="application/javascript"></script>
 </head>
-<body ng-controller="userController">
+<body>
 <div class="Register_Menu" id="registerMenu" style="padding-top: 77px">
     <h4 style="padding-left: 595px">
         <pre style="width: 200px; text-align: center">Register Form</pre>
     </h4>
     <br>
 
-    <form style="padding-left: 600px">
+    <form style="padding-left: 600px" action="/users/check" method="post">
 
         <div class="input-group">
             Email
@@ -62,29 +62,31 @@
 
         <div class="input-group" id="id_form_click">
             <div class="controls">
-                <button type="button" class="btn" ng-click="checkLogin(user)">Ok</button>
+                <input type="submit" class="btn" value="Ok">
                 <button type="reset" class="btn">Reset</button>
             </div>
         </div>
+        <br>
+        <span> If have not any account</span> <a href="/register"> go to register</a>
     </form>
 </div>
 <script>
-    angular.module('myapp', []).controller('userController', function ($scope, $http) {
-        $scope.contacts = [];
-        $scope.checkLogin = function (user) {
-            console.log(user);
-            $http({
-                url: '/users/check',
-                method: 'GET',
-                params: user
-            }).then(function successCallback(response) {
-                console.log('success');
-            }, function errorCallBack(response) {
-                console.log(response);
-            });
-        }
-    });
-    angular.bootstrap(document, ['myapp']);
+    //    angular.module('myapp', []).controller('userController', function ($scope, $http) {
+    //        $scope.contacts = [];
+    //        $scope.checkLogin = function (user) {
+    //            console.log(user);
+    //            $http({
+    //                url: '/users/check',
+    //                method: 'GET',
+    //                params: user
+    //            }).then(function successCallback(response) {
+    //                console.log('success');
+    //            }, function errorCallBack(response) {
+    //                console.log(response);
+    //            });
+    //        }
+    //    });
+    //    angular.bootstrap(document, ['myapp']);
 </script>
 </body>
 </html>

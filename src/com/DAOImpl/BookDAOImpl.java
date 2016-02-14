@@ -25,9 +25,9 @@ public class BookDAOImpl implements BookDAO {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        String sql = ("select b.id,  b.author_id, b.order_count, a.firstname || ',' || a.lastname AS FIO, b.name, b.genre_id, g.name, b.language, b.created_date from books b" +
+        String sql = ("select b.id,  b.author_id,  b.order_count, a.firstname || ',' || a.lastname AS FIO, b.name, b.genre_id, g.name, b.language, b.created_date from books b" +
                 " inner join authors a ON a.id = b.author_id " +
-                " inner  join genres g ON g.id = b.genre_id;");
+                " inner  join genres g ON g.id = b.genre_id");
 
         SQLQuery sqlQuery = session.createSQLQuery(sql);
         sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
@@ -82,7 +82,7 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public Boolean ifExists(Book book) {
+    public Boolean ifExists(String email) {
         return null;
     }
 }

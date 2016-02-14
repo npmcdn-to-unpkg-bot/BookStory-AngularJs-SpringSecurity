@@ -3,6 +3,12 @@ package com.DAOImpl;
 import com.DAO.UserDAO;
 import com.Model.Book;
 import com.Model.User;
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,13 +20,11 @@ import java.util.Set;
 @Repository("UserDAO")
 public class UserDAOImpl implements UserDAO {
 
-    @Override
-    public List<Book> allList() {
-        return null;
-    }
+    Session session;
+    Transaction transaction;
 
     @Override
-    public List<User> searchList(String text) {
+    public List<User> allList() {
         return null;
     }
 
@@ -31,12 +35,10 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void remove(Long id) {
-
     }
 
     @Override
     public void save(User user) {
-
     }
 
     @Override
@@ -45,7 +47,29 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Boolean ifExists(User user) {
-        return null;
+    public Boolean ifExists(String object) {
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        String sql = ("select * from users WHERE users.email = " + object);
+        SQLQuery sqlQuery = session.createSQLQuery(sql);
+        sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        sqlQuery.addEntity(User.class);
+        List<User> users = sqlQuery.list();
+        transaction.commit();
+        session.close();
+        return users.size() > 0;
+    }
+
+    @SuppressWarnings("unchecked")
+    public Boolean ifExists(String email, String password) {
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        List<User> users = session.createSQLQuery("SELECT *FROM Users u WHERE u.email = '" + email +
+                "' AND u.password = '" + password + "'").addEntity(User.class).list();
+        transaction.commit();
+        session.close();
+        return users.size() > 0;
     }
 }

@@ -20,6 +20,6 @@ public interface BaseService<T> {
 
     void update(T object);
 
-    Boolean ifExists(T object);
+    Boolean ifExists(String name);
 
 }

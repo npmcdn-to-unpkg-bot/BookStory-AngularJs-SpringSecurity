@@ -23,6 +23,11 @@ public class User {
     @Column(name = "password")
     private String password;
 
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "orders", joinColumns = {@JoinColumn(name = "user_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "book_id")})
+//    private Set<Book> books = new HashSet<>(0);
+//
 //    public Set<Book> getBooks() {
 //        return books;
 //    }
@@ -30,21 +35,7 @@ public class User {
 //    public void setBooks(Set<Book> books) {
 //        this.books = books;
 //    }
-//
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    private Set<Book> books = new HashSet<>();
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id", nullable = false, referencedColumnName = "id")
-    private Book book;
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
 
     public User(String firstName, String lastName, String email, String mobile, String password) {
         this.email = email;

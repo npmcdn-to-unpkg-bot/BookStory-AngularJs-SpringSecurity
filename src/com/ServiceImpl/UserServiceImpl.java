@@ -25,11 +25,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> searchList(String text) {
-        return null;
-    }
-
-    @Override
     public User getElementById(Long id) {
         return null;
     }
@@ -50,7 +45,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean ifExists(Book book) {
-        return null;
+    public Boolean ifExists(String email, String password) {
+        return userDAO.ifExists(email, password);
     }
+
 }
