@@ -33,7 +33,6 @@ public class UserController {
         } else {
             response.sendRedirect("/login");
         }
-
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)

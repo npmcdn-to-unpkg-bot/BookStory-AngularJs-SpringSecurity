@@ -3,7 +3,7 @@
 <style>
 </style>
 <head>
-    <title>Book Story Page</title>
+    <title>Book Story</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>
@@ -29,7 +29,7 @@
             type="application/javascript"></script>
 </head>
 <body ng-controller="bookController" ng-init="allList()">
-<a href="/login"  style="padding-left: 1300px">Log in</a>
+<a href="/login" style="padding-left: 1275px">Log in</a>
 
 <div id="Main" style="padding-left: 120px">
     <div id="table">
@@ -44,7 +44,8 @@
                 <div class="collapset navbar-collapse" id="bs-example-navbar-collapse-2">
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group" id="#id_form_group" style="padding-left: 150px">
-                            <input type="text" class="form-control" placeholder="Search" id="search" ng-model="searchText"
+                            <input type="text" class="form-control" placeholder="Search" id="search"
+                                   ng-model="searchText"
                                    autocomplete="off">
                         </div>
                     </form>
@@ -65,7 +66,7 @@
             </thead>
 
             <tbody id="tbodyId">
-            <tr ng-repeat="contact in contacts | filter: searchText" >
+            <tr ng-repeat="contact in contacts | filter: searchText">
                 <td ng-bind="contact.Book.id"></td>
                 <td ng-bind="contact.Book.name"></td>
                 <td ng-bind="contact.Book.author.firstName"></td>

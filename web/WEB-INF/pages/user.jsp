@@ -30,13 +30,13 @@
 </head>
 <body ng-controller="bookController" ng-init="allList()">
 <div>
-<span style="padding-left: 650px"> Welcome to <b>
+<span style="padding-left: 600px"> Welcome to <b>
     <%= request.getSession().getAttribute("username")%>
 </b>
     </span>
-    <a href="/logout" style="margin-left: 450px">Order List</a>
+    <a href="/logout" style="padding-left: 300px">Order List</a>
 
-    <a href="/orders" style="margin-left: 25px">Log Out</a>
+    <a href="/orders" style="padding-left: 25px">Log Out</a>
 </div>
 
 <div id="Main" style="padding-left: 120px">
