@@ -65,10 +65,9 @@ public class GenreDAOImpl implements GenreDAO {
 
     @Override
     public void update(Genre genre) {
-
     }
 
-    @SuppressWarnings(("unchecked"))
+    @SuppressWarnings("unchecked")
     public Boolean ifExists(String name) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();

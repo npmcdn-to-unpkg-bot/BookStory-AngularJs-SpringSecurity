@@ -83,7 +83,7 @@ public class BookDAOImpl implements BookDAO {
     public void update(Book book) {
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
     public Boolean ifExists(String name) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();

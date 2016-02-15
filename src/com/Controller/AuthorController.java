@@ -38,7 +38,6 @@ public class AuthorController {
         Boolean exists = authorService.ifExists(firstName, lastName);
         if (!exists) {
             authorService.save(author);
-        } else {
         }
     }
 }

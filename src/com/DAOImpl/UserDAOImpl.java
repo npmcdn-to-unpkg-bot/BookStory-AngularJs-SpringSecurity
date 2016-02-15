@@ -30,7 +30,7 @@ public class UserDAOImpl implements UserDAO {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        List<User> users = session.createQuery("from Genre ").list();
+        List<User> users = session.createQuery("from User ").list();
         transaction.commit();
         session.close();
         return users;
