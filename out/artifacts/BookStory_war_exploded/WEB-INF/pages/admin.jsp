@@ -149,7 +149,7 @@
                 <td ng-bind="contact.Book.created_date"></td>
                 <td ng-bind="contact.Book.order_count"></td>
                 <td>
-                    <span class="glyphicon glyphicon-remove-circle" ng-click="removeBook(contact.Book.order_count)"
+                    <span class="glyphicon glyphicon-remove-circle" ng-click="removeBook(contact.Book.id)"
                           style="cursor: pointer;"></span>
                 </td>
             </tr>
@@ -234,8 +234,8 @@
 //            });
             var box = bootbox.dialog({
                 title: 'Author information',
-                message: "<input type='text' class='form-control' ng-model='firstName' id='firstName' placeholder='first' autofocus/>" +
-                "<input type='text' class='form-control' id='lastName' ng-model='lastName' placeholder='last' autofocus/>" +
+                message: "<input type='text' class='form-control' ng-model='firstName' id='first' placeholder='first' autofocus/>" +
+                "<input type='text' class='form-control' id='last' ng-model='last' placeholder='last' autofocus/>" +
                 "<input type='text' class='form-control' id='emailText' ng-model='emailText' value='okay' placeholder='email' autofocus/>",
                 buttons: [{
                     label: 'cancel',
@@ -245,9 +245,9 @@
                     {
                         label: 'ok',
                         callback: function () {
-//                            console.log(angular.element(document.querySelector('#fistName')).val());
-//                            console.log(angular.element(document.querySelector('#lastName'))).val();
-//                            console.log(angular.element(document.querySelector('#emailText'))).val();
+                            console.log(document.getElementById('first').value);
+                            console.log(document.getElementById('last').value);
+                            console.log(document.getElementById('emailText').value);
                         }
                     }]
             });
@@ -257,6 +257,7 @@
         };
 
         $scope.removeBook = function (id) {
+            console.log(id);
             $http({
                 url: '/books/delete',
                 method: 'POST',

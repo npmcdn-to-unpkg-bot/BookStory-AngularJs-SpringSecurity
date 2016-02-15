@@ -30,6 +30,9 @@ public class AuthorController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void save(HttpServletRequest request) {
-
+        String firstName = request.getParameter("first");
+        String lastName = request.getParameter("lastName");
+        Author author = new Author(firstName, lastName);
+        authorService.save(author);
     }
 }

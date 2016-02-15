@@ -32,7 +32,7 @@ public class Book {
     }
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "author_id", nullable = false, referencedColumnName = "id")
     private Author author;
 
@@ -47,7 +47,7 @@ public class Book {
         this.author = author;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "genre_id", nullable = false, referencedColumnName = "id")
     private Genre genre;
 

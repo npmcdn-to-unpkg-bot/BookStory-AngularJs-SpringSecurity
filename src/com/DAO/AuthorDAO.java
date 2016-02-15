@@ -18,5 +18,5 @@ public interface AuthorDAO extends BaseDAO<Author> {
 
     void update(Author author);
 
-    Boolean ifExists(String name);
+    Boolean ifExists(String firstName, String lastName);
 }

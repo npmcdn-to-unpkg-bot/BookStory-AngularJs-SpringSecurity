@@ -2,6 +2,7 @@ package com.DAOImpl;
 
 import com.DAO.AuthorDAO;
 import com.Model.Author;
+import com.sun.deploy.config.Config;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -51,6 +52,15 @@ public class AuthorDAOImpl implements AuthorDAO {
 
     @Override
     public Boolean ifExists(String name) {
+        return null;
+    }
+
+    @Override
+    public Boolean ifExists(String firstName, String lastName) {
+        Configuration configuration = new Configuration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        List<Author> authors = session.
         return null;
     }
 }
