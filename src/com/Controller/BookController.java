@@ -5,6 +5,7 @@ import com.Service.BookService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,13 +40,13 @@ public class BookController {
         Gson gson = new Gson();
         return gson.toJson(employees, employees.getClass());
     }
-//
-//    @RequestMapping(value = "/delete")
-//    public void deleteEmployee(HttpServletRequest request) {
-//        String i = request.getParameter("id");
-//        Long id = Long.parseLong(i);
-//        bookService.remove(id);
-//    }
+
+    @RequestMapping(value = "/delete")
+    public void deleteEmployee(HttpServletRequest request) {
+        String i = request.getParameter("id");
+        Long id = Long.parseLong(i);
+        bookService.remove(id);
+    }
 //
 //
 //    @RequestMapping(value = "/getElementById")
@@ -55,4 +56,9 @@ public class BookController {
 //        return bookService.getElementById(id);
 //    }
 
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
+    public Long order(HttpServletRequest request) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        return bookService.order(id);
+    }
 }

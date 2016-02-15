@@ -21,4 +21,6 @@ public interface BookService extends BaseService<Book> {
 
     Boolean ifExists(String name);
 
+    Long order(Long id);
+
 }

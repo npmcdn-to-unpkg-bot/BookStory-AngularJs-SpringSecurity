@@ -1,5 +1,6 @@
 package com.Controller;
 
+import com.HashCode.MD5;
 import com.Model.User;
 import com.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,7 @@ public class UserController {
         String email = request.getParameter("email");
         String mobile = request.getParameter("mobile");
         String password = request.getParameter("password");
+        password = MD5.getMD5(password);
         User user = new User(firstName, lastName, email, mobile, password);
         Boolean exist = userService.ifExists(email);
         if (!exist) {

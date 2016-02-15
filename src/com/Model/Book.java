@@ -21,7 +21,16 @@ public class Book {
     @Column(name = "created_date", nullable = false)
     private String created_date;
     @Column(name = "order_count", nullable = false)
-    private String order_count;
+    private Long order_count;
+
+    public Long getOrder_count() {
+        return order_count;
+    }
+
+    public void setOrder_count(Long order_count) {
+        this.order_count = order_count;
+    }
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id", nullable = false, referencedColumnName = "id")

@@ -45,4 +45,9 @@ public class BookServiceImpl implements BookService {
     public Boolean ifExists(String name) {
         return employeeDAO.ifExists(name);
     }
+
+    @Override
+    public Long order(Long id) {
+        return employeeDAO.order(id);
+    }
 }

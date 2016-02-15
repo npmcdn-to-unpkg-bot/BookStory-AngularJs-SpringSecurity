@@ -79,10 +79,10 @@
                 <td ng-bind="contact.Book.language"></td>
                 <td ng-bind="contact.Book.genre.name"></td>
                 <td ng-bind="contact.Book.created_date"></td>
-                <td ng-bind="contact.Book.order_count"></td>
+                <td ng-bind="contact.Book.order_count" id='" + contact.Book.order_count + "'></td>
                 <td>
-                    <span class="glyphicon glyphicon-saved" ng-click="notify_success()"
-                          style="cursor: pointer;"></span>
+                    <span class="glyphicon glyphicon-saved" ng-click="orderBook(contact.Book.id)"
+                          style="cursor: pointer;" id='" + contact.Book.id + "'></span>
                 </td>
             </tr>
             </tbody>
@@ -98,8 +98,16 @@
                 console.log($scope.contacts);
             })
         };
-        $scope.notify_success = function () {
-            alert('add');
+        $scope.orderBook = function (id) {
+            $http({
+                url: '/books/order',
+                params: {
+                    id: id
+                },
+                method: 'POST'
+            }).success(function (data) {
+                angular.reloadWithDebugInfo();
+            })
         }
     });
     angular.bootstrap(document, ['myapp']);

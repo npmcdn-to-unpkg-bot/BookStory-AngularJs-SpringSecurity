@@ -1,6 +1,7 @@
 package com.DAOImpl;
 
 import com.DAO.UserDAO;
+import com.HashCode.MD5;
 import com.Model.Book;
 import com.Model.User;
 import org.hibernate.Criteria;
@@ -74,7 +75,7 @@ public class UserDAOImpl implements UserDAO {
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
         List<User> users = session.createSQLQuery("SELECT *FROM Users u WHERE u.email = '" + email +
-                "' AND u.password = '" + password + "'").addEntity(User.class).list();
+                "' AND u.password = '" + MD5.getMD5(password) + "'").addEntity(User.class).list();
         transaction.commit();
         session.close();
         return users.size() > 0;

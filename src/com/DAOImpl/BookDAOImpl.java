@@ -66,10 +66,25 @@ public class BookDAOImpl implements BookDAO {
         session.close();
     }
 
-    public void update(Book book) {}
+    public void update(Book book) {
+    }
 
     @Override
     public Boolean ifExists(String email) {
         return null;
+    }
+
+    @Override
+    public Long order(Long id) {
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        Book book = getElementById(id);
+        Long order_count = book.getOrder_count();
+        book.setOrder_count(order_count + 1);
+        session.update(book);
+        transaction.commit();
+        session.close();
+        return book.getOrder_count();
     }
 }

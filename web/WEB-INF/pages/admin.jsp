@@ -149,7 +149,7 @@
                 <td ng-bind="contact.Book.created_date"></td>
                 <td ng-bind="contact.Book.order_count"></td>
                 <td>
-                    <span class="glyphicon glyphicon-remove-circle" ng-click="notify_success()"
+                    <span class="glyphicon glyphicon-remove-circle" ng-click="removeBook(contact.Book.order_count)"
                           style="cursor: pointer;"></span>
                 </td>
             </tr>
@@ -254,6 +254,18 @@
             box.bind('shown.bs.modal', function () {
                 box.find("input").focus();
             });
+        };
+
+        $scope.removeBook = function (id) {
+            $http({
+                url: '/books/delete',
+                method: 'POST',
+                params: {
+                    id: id
+                }
+            }).success(function (data) {
+                console.log(data);
+            })
         }
     });
 

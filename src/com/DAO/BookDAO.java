@@ -20,4 +20,6 @@ public interface BookDAO extends BaseDAO<Book> {
     void update(Book book);
 
     Boolean ifExists(String name);
+
+    Long order(Long id);
 }
