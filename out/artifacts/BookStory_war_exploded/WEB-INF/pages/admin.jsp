@@ -272,6 +272,7 @@
                     genre_id: genre_id
                 }
             }).success(function (data) {
+                angular.reloadWithDebugInfo();
                 console.log(data);
             })
         }

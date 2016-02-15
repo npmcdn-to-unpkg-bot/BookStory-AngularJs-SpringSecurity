@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Registration Page</title>
+    <title>Login Page</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>
@@ -71,22 +71,6 @@
     </form>
 </div>
 <script>
-    //    angular.module('myapp', []).controller('userController', function ($scope, $http) {
-    //        $scope.contacts = [];
-    //        $scope.checkLogin = function (user) {
-    //            console.log(user);
-    //            $http({
-    //                url: '/users/check',
-    //                method: 'GET',
-    //                params: user
-    //            }).then(function successCallback(response) {
-    //                console.log('success');
-    //            }, function errorCallBack(response) {
-    //                console.log(response);
-    //            });
-    //        }
-    //    });
-    //    angular.bootstrap(document, ['myapp']);
 </script>
 </body>
 </html>

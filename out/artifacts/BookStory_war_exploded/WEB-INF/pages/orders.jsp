@@ -4,7 +4,8 @@
 
 </style>
 <head>
-    <title>Registration Page</title>
+    <title><%= request.getSession().getAttribute("username") %>
+    </title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>
@@ -30,6 +31,13 @@
             type="application/javascript"></script>
 </head>
 <body>
+<div>
+<span style="padding-left: 650px"> Welcome to <b>
+    <%= request.getSession().getAttribute("username")%>
+</b>
+    </span>
+    <a href="/logout" style="margin-left: 500px">Log Out</a>
+</div>
 <div id="Main" style="padding-left: 120px">
     <div id="table">
         <nav class="navbar navbar-default" id="id_navbar-default">

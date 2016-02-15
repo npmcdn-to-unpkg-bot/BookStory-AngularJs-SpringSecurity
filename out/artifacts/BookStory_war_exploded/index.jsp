@@ -29,7 +29,7 @@
             type="application/javascript"></script>
 </head>
 <body ng-controller="bookController" ng-init="allList()">
-<a href="/login" style="padding-left: 1300px">Log in</a>
+<a href="/login"  style="padding-left: 1300px">Log in</a>
 
 <div id="Main" style="padding-left: 120px">
     <div id="table">

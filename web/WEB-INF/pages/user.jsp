@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>User Page</title>
+    <title><%= request.getSession().getAttribute("username") %>
+    </title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>
@@ -29,11 +30,13 @@
 </head>
 <body ng-controller="bookController" ng-init="allList()">
 <div>
-<span style="padding-left: 500px"> Welcome to <b>
+<span style="padding-left: 650px"> Welcome to <b>
     <%= request.getSession().getAttribute("username")%>
 </b>
     </span>
-    <a href="/logout" style="margin-left: 500px">logout</a>
+    <a href="/logout" style="margin-left: 450px">Order List</a>
+
+    <a href="/orders" style="margin-left: 25px">Log Out</a>
 </div>
 
 <div id="Main" style="padding-left: 120px">
@@ -106,6 +109,7 @@
                 },
                 method: 'POST'
             }).success(function (data) {
+                console.log(data);
                 angular.reloadWithDebugInfo();
             })
         }
