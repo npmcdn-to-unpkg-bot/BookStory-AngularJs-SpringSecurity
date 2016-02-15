@@ -2,7 +2,7 @@
 <html ng-init="isShow = true">
 
 <head>
-    <title>Registration Page</title>
+    <title>Admin Page</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>
@@ -42,21 +42,21 @@
             <div class="input-group">
                 Name of book
                 <div class="input-group">
-                    <input type="text" id="name" name="Name" maxlength="50"
+                    <input type="text" id="name" name="Name" maxlength="50" ng-model="name"
                            placeholder="Name of book" class="form-control">
                 </div>
             </div>
             <div class="input-group">
                 Publish Date
                 <div class="input-group">
-                    <input type="text" name="publishDate" maxlength="10" id="publishDate"
-                           placeholder="Publish Date" class="form-control">
+                    <input type="text" name="publishDate" maxlength="10" id="publishDate" ng-model="publish"
+                           placeholder="Publish Date : DD/MM/YY" class="form-control">
                 </div>
             </div>
             <div class="input-group">
                 Language
                 <div class="input-group">
-                    <input type="text" name="language" maxlength="15" id="language"
+                    <input type="text" name="language" maxlength="15" id="language" ng-model="language"
                            placeholder="Input language of book" class="form-control">
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 Select Genre
                 <div class="input-group">
                     <select class="form-control" style="width: 194px">
-                        <option ng-bind="genre.name" ng-repeat="genre in genres"></option>
+                        <option id="" ng-bind="genre.name" ng-repeat="genre in genres"></option>
                     </select>
                 </div>
             </div>
@@ -97,7 +97,7 @@
 
             <div class="input-group" id="id_form_click">
                 <div class="controls">
-                    <button type="button" class="btn">Ok</button>
+                    <button type="button" class="btn" ng-click="saveBook()">Ok</button>
                     <button type="reset" class="btn">Reset</button>
                 </div>
             </div>
@@ -251,6 +251,28 @@
                     id: id
                 }
             }).success(function (data) {
+                console.log(data);
+            })
+        };
+
+        $scope.saveBook = function () {
+            var name = 'Robinson';
+            var publish_date = '12/06/2015';
+            var language = 'en';
+            var author_id = '1';
+            var genre_id = '1';
+            $http({
+                url: 'books/add',
+                method: 'POST',
+                params: {
+                    name: name,
+                    publish_date: publish_date,
+                    language: language,
+                    author_id: author_id,
+                    genre_id: genre_id
+                }
+            }).success(function (data) {
+                angular.reloadWithDebugInfo();
                 console.log(data);
             })
         }

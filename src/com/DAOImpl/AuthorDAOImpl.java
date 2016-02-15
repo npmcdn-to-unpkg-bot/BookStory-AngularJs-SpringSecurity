@@ -32,7 +32,10 @@ public class AuthorDAOImpl implements AuthorDAO {
 
     @Override
     public Author getElementById(Long id) {
-        return null;
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        return (Author) session.get(Author.class, id);
     }
 
     @Override

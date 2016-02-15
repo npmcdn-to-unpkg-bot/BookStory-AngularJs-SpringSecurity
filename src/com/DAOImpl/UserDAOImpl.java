@@ -3,6 +3,7 @@ package com.DAOImpl;
 import com.DAO.UserDAO;
 import com.HashCode.MD5;
 import com.Model.Book;
+import com.Model.Genre;
 import com.Model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
@@ -24,18 +25,36 @@ public class UserDAOImpl implements UserDAO {
     Session session;
     Transaction transaction;
 
-    @Override
+    @SuppressWarnings("unchecked")
     public List<User> allList() {
-        return null;
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        List<User> users = session.createQuery("from Genre ").list();
+        transaction.commit();
+        session.close();
+        return users;
     }
 
     @Override
     public User getElementById(Long id) {
-        return null;
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        return (User) session.get(Book.class, id);
     }
 
     @Override
     public void remove(Long id) {
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        User user = getElementById(id);
+        if (user != null) {
+            session.delete(user);
+        }
+        transaction.commit();
+        session.close();
     }
 
     @Override

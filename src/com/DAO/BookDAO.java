@@ -1,6 +1,8 @@
 package com.DAO;
 
+import com.Model.Author;
 import com.Model.Book;
+import com.Model.Genre;
 
 import java.util.List;
 import java.util.Set;
@@ -15,7 +17,7 @@ public interface BookDAO extends BaseDAO<Book> {
 
     void remove(Long id);
 
-    void save(Book book);
+    void save(Book book, Genre genre, Author author);
 
     void update(Book book);
 

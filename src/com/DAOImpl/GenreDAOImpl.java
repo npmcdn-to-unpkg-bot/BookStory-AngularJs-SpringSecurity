@@ -33,12 +33,23 @@ public class GenreDAOImpl implements GenreDAO {
 
     @Override
     public Genre getElementById(Long id) {
-        return null;
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        return (Genre) session.get(Genre.class, id);
     }
 
     @Override
     public void remove(Long id) {
-
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        Genre genre = getElementById(id);
+        if (genre != null) {
+            session.delete(genre);
+        }
+        transaction.commit();
+        session.close();
     }
 
     @Override

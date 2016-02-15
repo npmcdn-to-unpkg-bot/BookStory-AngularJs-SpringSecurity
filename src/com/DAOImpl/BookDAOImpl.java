@@ -1,7 +1,9 @@
 package com.DAOImpl;
 
 import com.DAO.BookDAO;
+import com.Model.Author;
 import com.Model.Book;
+import com.Model.Genre;
 import org.hibernate.*;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
@@ -57,6 +59,18 @@ public class BookDAOImpl implements BookDAO {
         session.close();
     }
 
+    @Override
+    public void save(Book book, Genre genre, Author author) {
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        book.setGenre(genre);
+        book.setAuthor(author);
+        session.save(book);
+        transaction.commit();
+        session.close();
+    }
+
     public void save(Book book) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
@@ -70,8 +84,15 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public Boolean ifExists(String email) {
-        return null;
+    public Boolean ifExists(String name) {
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        SQLQuery sqlQuery = session.createSQLQuery("SELECT *FROM books AS b WHERE b.name = '" + name + "'");
+        sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        sqlQuery.addEntity(Book.class);
+        List<Book> books = sqlQuery.list();
+        return books.size() > 0;
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.ServiceImpl;
 
 import com.DAO.BookDAO;
+import com.Model.Author;
 import com.Model.Book;
+import com.Model.Genre;
 import com.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,36 +20,41 @@ import java.util.Set;
 public class BookServiceImpl implements BookService {
 
     @Autowired
-    private BookDAO employeeDAO;
+    private BookDAO bookDAO;
 
     public List<Book> allList() {
-        return employeeDAO.allList();
+        return bookDAO.allList();
     }
 
     public Book getElementById(Long id) {
-        return employeeDAO.getElementById(id);
+        return bookDAO.getElementById(id);
     }
 
     public void remove(Long id) {
-        employeeDAO.remove(id);
+        bookDAO.remove(id);
 
+    }
+
+    @Override
+    public void save(Book book, Genre genre, Author author) {
+        bookDAO.save(book, genre, author);
     }
 
     public void save(Book book) {
-        employeeDAO.save(book);
+        bookDAO.save(book);
     }
 
     public void update(Book book) {
-        employeeDAO.update(book);
+        bookDAO.update(book);
     }
 
     @Override
     public Boolean ifExists(String name) {
-        return employeeDAO.ifExists(name);
+        return bookDAO.ifExists(name);
     }
 
     @Override
     public Long order(Long id) {
-        return employeeDAO.order(id);
+        return bookDAO.order(id);
     }
 }

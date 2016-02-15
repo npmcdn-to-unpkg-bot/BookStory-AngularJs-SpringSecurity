@@ -10,8 +10,8 @@
       <schema id="2" parent="1" name="public">
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
-        <introspection-state-number>1157</introspection-state-number>
-        <introspection-timestamp>2016-02-15.16:24:07.984</introspection-timestamp>
+        <introspection-state-number>1161</introspection-state-number>
+        <introspection-timestamp>2016-02-15.17:55:53.502</introspection-timestamp>
       </schema>
       <schema id="3" parent="1" name="pg_catalog">
         <object-id>11</object-id>
@@ -18993,8 +18993,9 @@
         <data-type>bigint</data-type>
       </column>
       <column id="3373" parent="10" name="author_id">
-        <state-number>1038</state-number>
+        <state-number>1161</state-number>
         <data-type>bigint</data-type>
+        <default-expression>0</default-expression>
       </column>
       <column id="3374" parent="10" name="order_count">
         <state-number>1065</state-number>

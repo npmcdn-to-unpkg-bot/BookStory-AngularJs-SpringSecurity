@@ -116,12 +116,10 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "id='" + id + '\'' +
-                "name='" + name + '\'' +
-                ", language='" + language + '\'' +
+                ", name='" + name + '\'' +
                 ", language='" + language + '\'' +
                 ", created_date='" + created_date + '\'' +
-                ", genre_name='" + getGenre().getName() + '\'' +
-                ", author_name='" + getAuthor().getFirstName() + " " + getAuthor().getLastName() + '\'' +
+                ", order_count='" + order_count + '\'' +
                 '}';
     }
 }

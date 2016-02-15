@@ -49,4 +49,13 @@ public class Order {
     public void setBook_id(Long book_id) {
         this.book_id = book_id;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                "user_id='" + user_id + '\'' +
+                ", book_id='" + book_id + '\'' +
+                '}';
+    }
 }

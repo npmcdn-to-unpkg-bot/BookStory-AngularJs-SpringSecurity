@@ -3,7 +3,7 @@
 <style>
 </style>
 <head>
-    <title>Registration Page</title>
+    <title>Book Story Page</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>
