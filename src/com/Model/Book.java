@@ -60,8 +60,8 @@ public class Book {
     }
 
 //    private Set<User> users = new HashSet<>(0);
-
-//    @ManyToMany(cascade = CascadeType.ALL)
+//
+//    @ManyToMany
 //    @JoinTable(name = "orders", joinColumns = {@JoinColumn(name = "book_id")},
 //            inverseJoinColumns = {@JoinColumn(name = "user_id")})
 //    public Set<User> getUsers() {

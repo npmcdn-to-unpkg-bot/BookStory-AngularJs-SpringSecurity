@@ -38,7 +38,6 @@ public class GenreController {
         Boolean exists = genreService.ifExists(name);
         if (!exists) {
             genreService.save(genre);
-        } else {
         }
     }
 }
