@@ -42,7 +42,12 @@ public class AuthorDAOImpl implements AuthorDAO {
 
     @Override
     public void save(Author author) {
-
+        Configuration configuration = new Configuration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        session.save(author);
+        transaction.commit();
+        session.close();
     }
 
     @Override
@@ -55,12 +60,15 @@ public class AuthorDAOImpl implements AuthorDAO {
         return null;
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
     public Boolean ifExists(String firstName, String lastName) {
         Configuration configuration = new Configuration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        List<Author> authors = session.
-        return null;
+        List<Author> authors = session.createSQLQuery("select * from authors WHERE authors.firstname ='" + firstName +
+                "' AND authors.lastname = '" + lastName + "'").addEntity(Author.class).list();
+        transaction.commit();
+        session.close();
+        return authors.size() > 0;
     }
 }

@@ -234,9 +234,8 @@
 //            });
             var box = bootbox.dialog({
                 title: 'Author information',
-                message: "<input type='text' class='form-control' ng-model='firstName' id='first' placeholder='first' autofocus/>" +
-                "<input type='text' class='form-control' id='last' ng-model='last' placeholder='last' autofocus/>" +
-                "<input type='text' class='form-control' id='emailText' ng-model='emailText' value='okay' placeholder='email' autofocus/>",
+                message: "<input type='text' class='form-control' ng-model='first' id='first' placeholder='first' autofocus/>" +
+                "<input type='text' class='form-control' id='last' ng-model='last' placeholder='last' autofocus/>",
                 buttons: [{
                     label: 'cancel',
                     callback: function () {
@@ -245,9 +244,17 @@
                     {
                         label: 'ok',
                         callback: function () {
-                            console.log(document.getElementById('first').value);
-                            console.log(document.getElementById('last').value);
-                            console.log(document.getElementById('emailText').value);
+                            $http({
+                                url: 'authors/add',
+                                params: {
+                                    firstName: document.getElementById('first').value,
+                                    lastName: document.getElementById('last').value
+                                },
+                                method: 'POST'
+                            }).success(function (data) {
+                                angular.reloadWithDebugInfo();
+                                console.log(data);
+                            })
                         }
                     }]
             });

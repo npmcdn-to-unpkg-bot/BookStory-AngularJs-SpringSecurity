@@ -211,32 +211,10 @@
         };
 
         $scope.createAuthor = function () {
-//            bootbox.prompt({
-//                title: "Author of First Name",
-//                title: "Author of Last Name",
-//                title: "Author of email",
-//                size: 'small',
-//                callback: function (result) {
-//                    if (result) {
-//                        $http({
-//                            url: '/authors/add',
-//                            method: 'GET',
-//                            params: result
-//                        }).then(function successCallback(response) {
-//                            console.log('success');
-//                        }, function errorCallBack(response) {
-//                            console.log(response);
-//                        });
-//                    } else {
-//                        console.log(result);
-//                    }
-//                }
-//            });
             var box = bootbox.dialog({
                 title: 'Author information',
-                message: "<input type='text' class='form-control' ng-model='first' id='first' placeholder='first' autofocus/>" +
-                "<input type='text' class='form-control' id='last' ng-model='last' placeholder='last' autofocus/>" +
-                "<input type='text' class='form-control' id='emailText' ng-model='emailText' value='okay' placeholder='email' autofocus/>",
+                message: "<input type='text' class='form-control' ng-model='first' id='first' placeholder='First Name' autofocus/>" +
+                "<input type='text' class='form-control' id='last' ng-model='last' placeholder='Last Name' autofocus/>",
                 buttons: [{
                     label: 'cancel',
                     callback: function () {
@@ -245,14 +223,15 @@
                     {
                         label: 'ok',
                         callback: function () {
-                            http({
+                            $http({
                                 url: 'authors/add',
                                 params: {
-                                    firstName: document.getElementById('first'),
-                                    lastName: document.getElementById('last'),
-                                    method: 'POST'
-                                }
+                                    firstName: document.getElementById('first').value,
+                                    lastName: document.getElementById('last').value
+                                },
+                                method: 'POST'
                             }).success(function (data) {
+                                angular.reloadWithDebugInfo();
                                 console.log(data);
                             })
                         }
@@ -276,6 +255,7 @@
             })
         }
     });
+
 
     angular.bootstrap(document, ['myapp']);
 </script>

@@ -48,7 +48,7 @@ public class BookDAOImpl implements BookDAO {
     public void remove(Long id) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
-            transaction = session.beginTransaction();
+        transaction = session.beginTransaction();
         Book book = getElementById(id);
         if (book != null) {
             session.delete(book);

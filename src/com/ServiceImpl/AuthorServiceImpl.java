@@ -46,7 +46,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Boolean ifExists(String firstName, String lastName) {
-        return null;
+        return authorDAO.ifExists(firstName, lastName);
     }
 
     @Override

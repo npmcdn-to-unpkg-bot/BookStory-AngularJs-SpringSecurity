@@ -1,8 +1,10 @@
 package com.Controller;
 
 import com.Model.Author;
+import com.Model.Book;
 import com.Service.AuthorService;
 import com.google.gson.Gson;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,9 +32,13 @@ public class AuthorController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void save(HttpServletRequest request) {
-        String firstName = request.getParameter("first");
+        String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         Author author = new Author(firstName, lastName);
-        authorService.save(author);
+        Boolean exists = authorService.ifExists(firstName, lastName);
+        if (!exists) {
+            authorService.save(author);
+        } else {
+        }
     }
 }
