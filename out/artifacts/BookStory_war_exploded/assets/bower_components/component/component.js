@@ -1,5 +1,5 @@
 define([
-    'bean',
+    'bean.xml',
     'qwery',
     'bonzo',
     'utils/ajax'

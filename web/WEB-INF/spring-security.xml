@@ -9,8 +9,10 @@
     http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
     <http auto-config="true">
-        <intercept-url pattern="/index*" access="ROLE_USER"/>
+        <intercept-url pattern="/login*" access="ROLE_USER"/>
+        <logout logout-success-url="/user*" logout-url="/logout"/>
         <intercept-url pattern="/admin*" access="ROLE_ADMIN"/>
+        <access-denied-handler error-page="/error*"/>
     </http>
 
     <authentication-manager>
@@ -18,7 +20,9 @@
             <user-service>
                 <user name="user" password="10" authorities="ROLE_USER"/>
                 <user name="admin" password="101" authorities="ROLE_ADMIN"/>
+                <user name="dba" authorities="DBA"/>
             </user-service>
+            <jdbc-user-service data-source-ref="" users-by-username-query="select * from genres;"/>
         </authentication-provider>
     </authentication-manager>
 </beans:beans>

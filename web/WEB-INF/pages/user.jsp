@@ -34,9 +34,7 @@
     <%= request.getSession().getAttribute("username")%>
 </b>
     </span>
-    <a href="/orders" style="padding-left: 300px">Order List</a>
-
-    <a href="/orders" style="padding-left: 25px">Log Out</a>
+    <a href="/logout" style="padding-left: 400px">Log Out</a>
 </div>
 
 <div id="Main" style="padding-left: 120px">
