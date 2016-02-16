@@ -42,29 +42,29 @@
             <div class="input-group">
                 Name of book
                 <div class="input-group">
-                    <input type="text" id="name" name="Name" maxlength="50" ng-model="name"
+                    <input type="text" id="name" name="Name" maxlength="50" ng-model="nameModel"
                            placeholder="Name of book" class="form-control">
                 </div>
             </div>
             <div class="input-group">
                 Publish Date
                 <div class="input-group">
-                    <input type="text" name="publishDate" maxlength="10" id="publishDate" ng-model="publish"
+                    <input type="text" name="publishDate" maxlength="10" id="publishDate" ng-model="publishModel"
                            placeholder="Publish Date : DD/MM/YY" class="form-control">
                 </div>
             </div>
             <div class="input-group">
                 Language
                 <div class="input-group">
-                    <input type="text" name="language" maxlength="15" id="language" ng-model="language"
+                    <input type="text" name="language" maxlength="15" id="language" ng-model="languageModel"
                            placeholder="Input language of book" class="form-control">
                 </div>
             </div>
             <div class="input-group">
                 Select Author
                 <div class="input-group">
-                    <select class="form-control" style="width: 194px">
-                        <option ng-bind="author.firstName + ' ' + author.lastName"
+                    <select class="form-control" style="width: 194px" id="authorSelect">
+                        <option id="{{author.id}}" ng-bind="author.firstName + ' ' + author.lastName"
                                 ng-repeat="author in authors"></option>
                     </select>
                 </div>
@@ -80,8 +80,8 @@
             <div class="input-group">
                 Select Genre
                 <div class="input-group">
-                    <select class="form-control" style="width: 194px">
-                        <option id="" ng-bind="genre.name" ng-repeat="genre in genres"></option>
+                    <select class="form-control" style="width: 194px" id="genreSelect">
+                        <option id="{{genre.id}}" ng-bind="genre.name" ng-repeat="genre in genres"></option>
                     </select>
                 </div>
             </div>
@@ -256,11 +256,16 @@
         };
 
         $scope.saveBook = function () {
-            var name = 'Robinson';
-            var publish_date = '12/06/2015';
-            var language = 'en';
-            var author_id = '1';
-            var genre_id = '1';
+            var name = $scope.nameModel;
+            var publish_date = $scope.publishModel;
+            var language = $scope.languageModel;
+            var author_id = document.getElementById('authorSelect').options[document.getElementById('authorSelect').selectedIndex].id;
+            var genre_id = document.getElementById('genreSelect').options[document.getElementById('genreSelect').selectedIndex].id;
+            console.log(name);
+            console.log(publish_date);
+            console.log(language);
+            console.log(author_id);
+            console.log(genre_id);
             $http({
                 url: 'books/add',
                 method: 'POST',
@@ -273,7 +278,6 @@
                 }
             }).success(function (data) {
                 angular.reloadWithDebugInfo();
-                console.log(data);
             })
         }
     });

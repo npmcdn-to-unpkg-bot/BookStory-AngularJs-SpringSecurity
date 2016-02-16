@@ -44,9 +44,6 @@ public class BookController {
         Boolean exists = bookService.ifExists(name);
         if (!exists)
             bookService.save(book, genre, author);
-        else {
-
-        }
     }
 
     @RequestMapping(value = "/allList")
