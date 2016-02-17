@@ -4,6 +4,7 @@ import com.DAO.BookDAO;
 import com.Model.Author;
 import com.Model.Book;
 import com.Model.Genre;
+import com.Model.Order;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -104,6 +105,7 @@ public class BookDAOImpl implements BookDAO {
         Book book = getElementById(id);
         Long order_count = book.getOrder_count();
         book.setOrder_count(order_count + 1);
+        Order order = (Order) session.get(Order.class, id);
         session.update(book);
         transaction.commit();
         session.close();

@@ -25,5 +25,6 @@
         <mapping class="com.Model.Author"/>
         <mapping class="com.Model.Genre"/>
         <mapping class="com.Model.Order"/>
+        <mapping class="com.Model.Role"/>
     </session-factory>
 </hibernate-configuration>

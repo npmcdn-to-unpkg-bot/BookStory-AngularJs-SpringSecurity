@@ -46,7 +46,7 @@ public class LinkController {
 
     @RequestMapping(value = "/error")
     public ModelAndView error() {
-        return new ModelAndView("WEB-INF/pages/error");
+        return new ModelAndView("WEB-INF/pages/403");
     }
 
     @RequestMapping(value = "/logout")

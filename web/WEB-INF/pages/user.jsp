@@ -1,6 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-
+<%
+    String username = (String) request.getSession().getAttribute("username");
+    if (username == null) {
+        response.sendRedirect("/");
+    }
+%>
 <head>
     <title><%= request.getSession().getAttribute("username") %>
     </title>
@@ -34,6 +39,8 @@
     <%= request.getSession().getAttribute("username")%>
 </b>
     </span>
+    <span style="padding-left: 350px" ng-bind=""></span>
+
     <a href="/logout" style="padding-left: 400px">Log Out</a>
 </div>
 

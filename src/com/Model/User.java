@@ -22,18 +22,29 @@ public class User {
     private String mobile;
     @Column(name = "password")
     private String password;
-//
-//    @ManyToMany(mappedBy = "users")
-//    private Set<Book> books = new HashSet<>(0);
-//
-//    public Set<Book> getBooks() {
-//        return books;
-//    }
-//
-//    public void setBooks(Set<Book> books) {
-//        this.books = books;
-//    }
-//
+
+    public Long getRole_id() {
+        return role_id;
+    }
+
+    public void setRole_id(Long role_id) {
+        this.role_id = role_id;
+    }
+
+    @Column(name = "role_id", insertable = false, updatable = false)
+    Long role_id;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "role_id", nullable = false)
+    private Role role;
 
     public User(String firstName, String lastName, String email, String mobile, String password) {
         this.email = email;
@@ -101,6 +112,7 @@ public class User {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + lastName + '\'' +
+                ", role_id='" + role_id + '\'' +
                 ", mobile='" + lastName + '\'' +
                 ", password='" + lastName + '\'' +
                 '}';

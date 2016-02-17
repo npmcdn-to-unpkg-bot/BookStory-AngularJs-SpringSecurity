@@ -62,7 +62,7 @@
 
         <div class="input-group" id="id_form_click">
             <div class="controls">
-                <input type="submit" class="btn" value="Ok">
+                <input type="submit" ng-disabled="user.password  && user.email" class="btn" value="Ok">
                 <button type="reset" class="btn">Reset</button>
             </div>
         </div>

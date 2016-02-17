@@ -15,12 +15,12 @@ public class Order {
     private Long id;
     @Column(name = "user_id")
     private Long user_id;
-    @Column(name = "book_id")
-    private Long book_id;
+    @Column(name = "order_count")
+    private Long order_count;
 
     public Order(Long user_id, Long book_id) {
         this.user_id = user_id;
-        this.book_id = book_id;
+        this.order_count = book_id;
     }
 
     public Order() {
@@ -35,7 +35,7 @@ public class Order {
     }
 
     public Long getBook_id() {
-        return book_id;
+        return order_count;
     }
 
     public void setId(Long id) {
@@ -47,7 +47,7 @@ public class Order {
     }
 
     public void setBook_id(Long book_id) {
-        this.book_id = book_id;
+        this.order_count = book_id;
     }
 
     @Override
@@ -55,7 +55,9 @@ public class Order {
         return "Order{" +
                 "id='" + id + '\'' +
                 "user_id='" + user_id + '\'' +
-                ", book_id='" + book_id + '\'' +
+                ", order_count='" + order_count + '\'' +
                 '}';
     }
+
+
 }
