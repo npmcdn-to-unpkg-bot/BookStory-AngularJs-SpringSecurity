@@ -50,13 +50,6 @@
             </div>
         </div>
         <div class="input-group">
-            Last Name
-            <div class="input-group">
-                <input type="text" name="lastName" maxlength="50" id="lastName"
-                       placeholder="Last Name" class="form-control" ng-model="user.lastName">
-            </div>
-        </div>
-        <div class="input-group">
             Email
             <div class="input-group">
                 <input type="email" name="email" maxlength="50" id="email"

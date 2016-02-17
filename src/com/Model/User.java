@@ -12,16 +12,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "firstName")
-    private String firstName;
-    @Column(name = "lastName")
-    private String lastName;
+    @Column(name = "name")
+    private String name;
     @Column(name = "email")
     private String email;
     @Column(name = "mobile")
     private String mobile;
     @Column(name = "password")
     private String password;
+    @Column(name = "role_id", insertable = false, updatable = false)
+    Long role_id;
 
     public Long getRole_id() {
         return role_id;
@@ -31,25 +31,9 @@ public class User {
         this.role_id = role_id;
     }
 
-    @Column(name = "role_id", insertable = false, updatable = false)
-    Long role_id;
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
-    private Role role;
-
-    public User(String firstName, String lastName, String email, String mobile, String password) {
+    public User(String name, String email, String mobile, String password) {
         this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.mobile = mobile;
         this.password = password;
     }
@@ -69,13 +53,10 @@ public class User {
         this.id = id;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setname(String name) {
+        this.name = name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
@@ -89,13 +70,10 @@ public class User {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getname() {
+        return name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
 
     public String getMobile() {
         return mobile;
@@ -109,12 +87,11 @@ public class User {
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + lastName + '\'' +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
                 ", role_id='" + role_id + '\'' +
-                ", mobile='" + lastName + '\'' +
-                ", password='" + lastName + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

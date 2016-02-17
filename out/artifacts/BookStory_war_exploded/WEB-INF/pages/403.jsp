@@ -14,3 +14,7 @@
 <h1 style="color: red">Error</h1>
 </body>
 </html>
+<%--
+authorities-by-username-query="SELECT us.name, rl.role FROM users us, role_users rl
+                               WHERE us.id = rl.user_id AND us.name =?"
+                               --%>

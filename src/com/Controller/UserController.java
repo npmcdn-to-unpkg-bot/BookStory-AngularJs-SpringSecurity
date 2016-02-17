@@ -38,12 +38,11 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public void add(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
         String mobile = request.getParameter("mobile");
         String password = request.getParameter("password");
         password = MD5.getMD5(password);
-        User user = new User(firstName, lastName, email, mobile, password);
+        User user = new User(firstName, email, mobile, password);
         Boolean exist = userService.ifExists(email);
         if (!exist) {
             userService.save(user);

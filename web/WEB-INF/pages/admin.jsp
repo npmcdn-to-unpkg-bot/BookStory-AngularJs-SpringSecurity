@@ -1,6 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html ng-init="isShow = true">
-
+<%--<%--%>
+<%--String username = (String) request.getSession().getAttribute("username");--%>
+<%--if(username == null){--%>
+<%--response.sendRedirect("/");--%>
+<%--}--%>
+<%--%>--%>
 <head>
     <title>Admin Page</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">

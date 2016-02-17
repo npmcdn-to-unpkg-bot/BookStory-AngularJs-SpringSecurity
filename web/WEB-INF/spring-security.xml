@@ -9,16 +9,16 @@
     http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
     <http auto-config="true">
-        <intercept-url pattern="/login" access="ROLE_USER"/>
+        <intercept-url pattern="/user" access="ROLE_USER"/>
         <logout logout-success-url="/" logout-url="/logout"/>
         <intercept-url pattern="/admin*" access="ROLE_ADMIN"/>
-        <access-denied-handler error-page="/403*"/>
+        <!--<access-denied-handler error-page="/403*"/>-->
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="user" password="10" authorities="ROLE_USER"/>
+                <!--<user name="user" password="10" authorities="ROLE_USER"/>-->
                 <user name="admin" password="101" authorities="ROLE_ADMIN"/>
             </user-service>
         </authentication-provider>
@@ -26,7 +26,11 @@
 
     <authentication-manager>
         <authentication-provider>
-            <jdbc-user-service data-source-ref="securityDataSource"/>
+            <jdbc-user-service data-source-ref="securityDataSource"
+                               users-by-username-query="SELECT name, password, enabled FROM users WHERE name =?"
+                               authorities-by-username-query="SELECT us.name, rl.role FROM users us, role_users rl
+                               WHERE us.id = rl.user_id AND us.name =?"
+            />
         </authentication-provider>
     </authentication-manager>
 

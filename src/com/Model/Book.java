@@ -59,20 +59,6 @@ public class Book {
         this.genre = genre;
     }
 
-//    private Set<User> users = new HashSet<>(0);
-//
-//    @ManyToMany
-//    @JoinTable(name = "orders", joinColumns = {@JoinColumn(name = "book_id")},
-//            inverseJoinColumns = {@JoinColumn(name = "user_id")})
-//    public Set<User> getUsers() {
-//        return users;
-//    }
-//
-//    public void setUsers(Set<User> users) {
-//        this.users = users;
-//    }
-
-
     public Book(String name, String language, String created_date) {
         this.name = name;
         this.language = language;

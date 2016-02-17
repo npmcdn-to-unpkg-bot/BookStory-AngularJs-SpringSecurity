@@ -1,11 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-<%
-    String username = (String) request.getSession().getAttribute("username");
-    if (username == null) {
-        response.sendRedirect("/");
-    }
-%>
+<%--<%--%>
+<%--String username = (String) request.getSession().getAttribute("username");--%>
+<%--if (username == null) {--%>
+<%--response.sendRedirect("/");--%>
+<%--}--%>
+<%--%>--%>
 <head>
     <title><%= request.getSession().getAttribute("username") %>
     </title>
@@ -35,13 +35,13 @@
 </head>
 <body ng-controller="bookController" ng-init="allList()">
 <div>
-<span style="padding-left: 600px"> Welcome to <b>
-    <%= request.getSession().getAttribute("username")%>
-</b>
-    </span>
-    <span style="padding-left: 350px" ng-bind=""></span>
+<%--<span style="padding-left: 600px"> Welcome to <b>--%>
+    <%--<%= request.getSession().getAttribute("username")%>--%>
+<%--</b>--%>
+    <%--</span>--%>
+    <%--<span style="padding-left: 750px" ng-bind=""></span>--%>
 
-    <a href="/logout" style="padding-left: 400px">Log Out</a>
+    <a href="/logout" style="padding-left: 700px">Log Out</a>
 </div>
 
 <div id="Main" style="padding-left: 120px">
