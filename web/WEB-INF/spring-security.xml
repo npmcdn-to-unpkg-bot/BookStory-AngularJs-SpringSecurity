@@ -22,7 +22,6 @@
                 <user name="admin" password="101" authorities="ROLE_ADMIN"/>
                 <user name="dba" authorities="DBA"/>
             </user-service>
-            <jdbc-user-service data-source-ref="" users-by-username-query="select * from genres;"/>
         </authentication-provider>
     </authentication-manager>
 </beans:beans>

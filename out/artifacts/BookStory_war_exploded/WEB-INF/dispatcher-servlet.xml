@@ -18,5 +18,4 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     </bean>
     <mvc:resources location="/assets/" mapping="/assets/**"/>
     <mvc:annotation-driven/>
-
 </beans>
