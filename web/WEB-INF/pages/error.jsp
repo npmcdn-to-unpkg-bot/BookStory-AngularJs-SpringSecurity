@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Access Denied</title>
+    <title>Error</title>
 </head>
 <body>
-<h1 style="color: red">Access Denied</h1>
+<h1 style="color: red">Error</h1>
 </body>
 </html>
 <%--

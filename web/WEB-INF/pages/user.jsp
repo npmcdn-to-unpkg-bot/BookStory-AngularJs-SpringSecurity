@@ -7,8 +7,9 @@
 <%--}--%>
 <%--%>--%>
 <head>
-    <title><%= request.getSession().getAttribute("username") %>
-    </title>
+    <%--<title><%= request.getSession().getAttribute("username") %>--%>
+    <%--</title>--%>
+        <title>User Page</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>

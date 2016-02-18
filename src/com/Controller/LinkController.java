@@ -44,8 +44,8 @@ public class LinkController {
         return new ModelAndView("WEB-INF/pages/orders");
     }
 
-    @RequestMapping(value = "/error")
-    public ModelAndView error() {
+    @RequestMapping(value = "/accessDenied")
+    public ModelAndView accessDenied() {
         return new ModelAndView("WEB-INF/pages/403");
     }
 
@@ -53,5 +53,10 @@ public class LinkController {
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.getSession().setAttribute("username", "");
         response.sendRedirect("/");
+    }
+
+    @RequestMapping(value = "/error")
+    public ModelAndView error() {
+        return new ModelAndView("WEB-INF/pages/error");
     }
 }
