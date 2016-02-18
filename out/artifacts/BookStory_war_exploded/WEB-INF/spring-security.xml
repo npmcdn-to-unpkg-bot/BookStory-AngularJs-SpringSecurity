@@ -9,27 +9,14 @@
     http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
     <http auto-config="true">
-        <intercept-url pattern="/user" access="ROLE_USER"/>
-        <intercept-url pattern="/admin" access="ROLE_ADMIN"/>
-        <access-denied-handler error-page="/WEB-INF/pages/403.jsp"/>
+        <intercept-url pattern="/admin**" access="ROLE_ADMIN"/>
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="user" password="10" authorities="ROLE_USER"/>
                 <user name="admin" password="101" authorities="ROLE_ADMIN"/>
             </user-service>
-        </authentication-provider>
-    </authentication-manager>
-
-    <authentication-manager>
-        <authentication-provider>
-            <jdbc-user-service data-source-ref="securityDataSource"
-                               users-by-username-query="SELECT name, password, enabled FROM users WHERE name =?"
-                               authorities-by-username-query="SELECT us.name, ru.role FROM users us, role_users ru WHERE us.name = ru.name AND us.name =?"
-            />
-            <password-encoder hash="md5"/>
         </authentication-provider>
     </authentication-manager>
 

@@ -27,6 +27,7 @@
         <fileset id="fileset" name="spring-security" removed="false">
           <file>file://$MODULE_DIR$/web/WEB-INF/spring-security.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/spring-security.xml</file>
+          <file>file://$MODULE_DIR$/web/WEB-INF/pages/config.xml</file>
         </fileset>
       </configuration>
     </facet>

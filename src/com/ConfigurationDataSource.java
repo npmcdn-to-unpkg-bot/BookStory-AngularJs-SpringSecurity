@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * Created by dexter on 2/17/16.
  */
 @Configuration
-public class configuration {
+public class ConfigurationDataSource {
     @Bean
     public DataSource securityDataSource() throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {
         DataSourceWrapper dataSourceWrapper = new DataSourceWrapper();
