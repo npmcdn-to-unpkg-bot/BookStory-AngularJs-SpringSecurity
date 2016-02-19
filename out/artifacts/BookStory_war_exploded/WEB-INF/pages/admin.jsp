@@ -7,7 +7,7 @@
 <%--}--%>
 <%--%>--%>
 <head>
-    <title>Admin Page</title>
+    <title>${username}</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>

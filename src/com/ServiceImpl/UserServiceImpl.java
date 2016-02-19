@@ -52,6 +52,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getElementName(String name) {
+        return userDAO.getElementName(name);
+    }
+
+    @Override
     public Boolean ifExists(String email, String password) {
         return userDAO.ifExists(email, password);
     }

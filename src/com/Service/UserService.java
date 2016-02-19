@@ -20,6 +20,8 @@ public interface UserService {
 
     Boolean ifExists(String email);
 
+    User getElementName(String name);
+
     Boolean ifExists(String email, String password);
 
 }

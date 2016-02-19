@@ -35,4 +35,25 @@
 //        http.authorizeRequests().antMatchers("/admin**").access("hasRole('ROLE_ADMIN')")
 //                .antMatchers("/user**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')").and().formLogin();
 //    }
+
+
+//    @Autowired
+//    @Qualifier("userDetailsService")
+//    UserDetailsService userDetailsService;
+//
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder managerBuilder) throws Exception {
+//        managerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+//    }
+//
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+//
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests().antMatchers("/admin**").access("hasRole('ROLE_ADMIN')")
+//                .antMatchers("/user**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')").and().formLogin();
+//    }
 //}

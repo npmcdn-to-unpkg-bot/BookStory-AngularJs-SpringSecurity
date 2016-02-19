@@ -13,6 +13,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -77,7 +78,6 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void update(User user) {
-
     }
 
     @Override
@@ -105,5 +105,21 @@ public class UserDAOImpl implements UserDAO {
         transaction.commit();
         session.close();
         return users.size() > 0;
+    }
+
+    @SuppressWarnings("unchecked")
+    public User getElementName(String name) {
+        Configuration configuration = new Configuration();
+        Session session = configuration.configure().buildSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        List<User> users;
+        users = session.createQuery("from User where name = '" + name + "'").list();
+        if (users.size() > 0) {
+            transaction.commit();
+            session.close();
+            return users.get(0);
+        } else {
+            return null;
+        }
     }
 }

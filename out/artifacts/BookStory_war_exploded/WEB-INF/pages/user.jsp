@@ -9,7 +9,7 @@
 <head>
     <%--<title><%= request.getSession().getAttribute("username") %>--%>
     <%--</title>--%>
-        <title>User Page</title>
+    <title>${username}</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
             type="application/javascript"></script>
@@ -36,9 +36,9 @@
 </head>
 <body ng-controller="bookController" ng-init="allList()">
 <div>
-<%--<span style="padding-left: 600px"> Welcome to <b>--%>
+    <%--<span style="padding-left: 600px"> Welcome to <b>--%>
     <%--<%= request.getSession().getAttribute("username")%>--%>
-<%--</b>--%>
+    <%--</b>--%>
     <%--</span>--%>
     <%--<span style="padding-left: 750px" ng-bind=""></span>--%>
 

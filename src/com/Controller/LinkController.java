@@ -1,6 +1,10 @@
 package com.Controller;
 
+import com.Model.CustomUser;
+import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,7 +30,18 @@ public class LinkController {
 
     @RequestMapping(value = "/admin")
     public ModelAndView admin() {
-        return new ModelAndView("WEB-INF/pages/admin");
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        CustomUser customUser = null;
+        if (principal instanceof CustomUser) {
+            customUser = (CustomUser) principal;
+        }
+        String name = customUser.getUsername();
+        ModelMap modelMap = new ModelMap();
+        modelMap.put("username", name);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addAllObjects(modelMap);
+        modelAndView.setViewName("WEB-INF/pages/admin");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/register")
@@ -36,7 +51,19 @@ public class LinkController {
 
     @RequestMapping(value = "/user")
     public ModelAndView user() {
-        return new ModelAndView("WEB-INF/pages/user");
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        CustomUser customUser = null;
+        if (principal instanceof CustomUser) {
+            customUser = (CustomUser) principal;
+        }
+        assert customUser != null;
+        String name = customUser.getUsername();
+        ModelMap modelMap = new ModelMap();
+        modelMap.put("username", name);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addAllObjects(modelMap);
+        modelAndView.setViewName("WEB-INF/pages/user");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/orders")
