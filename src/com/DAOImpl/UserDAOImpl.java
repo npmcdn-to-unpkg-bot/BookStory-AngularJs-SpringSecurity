@@ -44,6 +44,13 @@ public class UserDAOImpl implements UserDAO {
         return (User) session.get(Book.class, id);
     }
 
+    public User getElementById(String name) {
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        return (User) session.createQuery("from User where  name = '" + name + "'");
+    }
+
     @Override
     public void remove(Long id) {
         Configuration configuration = new AnnotationConfiguration();
