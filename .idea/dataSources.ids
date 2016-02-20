@@ -10,8 +10,8 @@
       <schema id="2" parent="1" name="public">
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
-        <introspection-state-number>1263</introspection-state-number>
-        <introspection-timestamp>2016-02-19.13:34:40.416</introspection-timestamp>
+        <introspection-state-number>1282</introspection-state-number>
+        <introspection-timestamp>2016-02-19.19:21:30.638</introspection-timestamp>
       </schema>
       <schema id="3" parent="1" name="pg_catalog">
         <object-id>11</object-id>
@@ -65,7 +65,7 @@
       </table>
       <table id="15" parent="2" name="users">
         <object-id>17013</object-id>
-        <state-number>1263</state-number>
+        <state-number>1282</state-number>
       </table>
       <table id="16" parent="3" name="pg_aggregate">
         <object-id>2600</object-id>
@@ -19112,15 +19112,15 @@
         <state-number>1114</state-number>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="3398" parent="15" name="enabled">
-        <state-number>1224</state-number>
-        <mandatory>1</mandatory>
-        <data-type>bigint</data-type>
-        <default-expression>1</default-expression>
-      </column>
-      <column id="3399" parent="15" name="role_id">
+      <column id="3398" parent="15" name="role_id">
         <state-number>1263</state-number>
         <data-type>bigint</data-type>
+      </column>
+      <column id="3399" parent="15" name="enabled">
+        <state-number>1282</state-number>
+        <mandatory>1</mandatory>
+        <data-type>boolean</data-type>
+        <default-expression>false</default-expression>
       </column>
       <index id="3400" parent="15" name="users_id_uindex">
         <object-id>17074</object-id>

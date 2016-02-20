@@ -2,6 +2,10 @@ package com.DAOImpl;
 
 import com.Model.CustomUser;
 import com.Model.Role;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -13,6 +17,9 @@ import java.util.List;
 @Repository
 public class CustomUserDetailsDAO {
     public CustomUser loadUserByUsername(final String name) {
+        Configuration configuration = new AnnotationConfiguration();
+        Session session = configuration.configure().buildSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
         CustomUser user = new CustomUser();
         user.setFirstName("kb");
         user.setLastName("gc");
@@ -20,27 +27,9 @@ public class CustomUserDetailsDAO {
         user.setPassword("10");
         Role r = new Role();
         r.setName("ROLE_USER");
-
-        CustomUser admin1 = new CustomUser();
-        admin1.setFirstName("bahodir");
-        admin1.setLastName("boydedayev");
-        admin1.setUsername("admin1");
-        admin1.setPassword("10");
-        Role r1 = new Role();
-        r1.setName("ROLE_ADMIN");
-
-        CustomUser admin2 = new CustomUser();
-        admin2.setFirstName("javohir");
-        admin2.setLastName("boydedayev");
-        admin2.setUsername("admin2");
-        admin2.setPassword("10");
-        Role r2 = new Role();
-        r2.setName("ROLE_ADMIN");
-
         List<Role> roles = new ArrayList<>();
         roles.add(r);
-        roles.add(r1);
-        roles.add(r2);
+
         user.setAuthorities(roles);
         return user;
     }

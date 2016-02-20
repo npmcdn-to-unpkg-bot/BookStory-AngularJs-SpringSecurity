@@ -6,6 +6,7 @@
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 //import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+//import org.springframework.security.web.util.AntPathRequestMatcher;
 //
 //import javax.sql.DataSource;
 //
@@ -30,6 +31,7 @@
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http.authorizeRequests().antMatchers("/admin**").access("hasRole('ROLE_ADMIN')")
-//                .antMatchers("/user**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')").and().formLogin();
+//                .antMatchers("/user**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+//                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).and().formLogin();
 //    }
 //}

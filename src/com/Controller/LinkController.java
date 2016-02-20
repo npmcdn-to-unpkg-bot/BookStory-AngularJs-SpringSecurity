@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -74,12 +75,6 @@ public class LinkController {
     @RequestMapping(value = "/accessDenied")
     public ModelAndView accessDenied() {
         return new ModelAndView("WEB-INF/pages/403");
-    }
-
-    @RequestMapping(value = "/logout")
-    public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        request.getSession().setAttribute("username", "");
-        response.sendRedirect("/");
     }
 
     @RequestMapping(value = "/error")
