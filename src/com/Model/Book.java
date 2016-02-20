@@ -36,8 +36,9 @@ public class Book {
     @JoinColumn(name = "author_id", nullable = false, referencedColumnName = "id")
     private Author author;
 
-    public Book() {
-    }
+    @ManyToOne
+    @JoinColumn(name = "genre_id", nullable = false, referencedColumnName = "id")
+    private Genre genre;
 
     public Author getAuthor() {
         return author;
@@ -47,16 +48,15 @@ public class Book {
         this.author = author;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "genre_id", nullable = false, referencedColumnName = "id")
-    private Genre genre;
-
     public Genre getGenre() {
         return genre;
     }
 
     public void setGenre(Genre genre) {
         this.genre = genre;
+    }
+
+    public Book() {
     }
 
     public Book(String name, String language, String created_date) {

@@ -6872,7 +6872,7 @@
       })
      .controller('GreeterController', ['$scope', function($scope) {
         $scope.name = 'Angular';
-        $scope.html = 'Hello {{name}}';
+        $scope.html = name;
       }]);
      </script>
      <div ng-controller="GreeterController">
@@ -21422,7 +21422,7 @@
             expect(valid.getText()).toContain('false');
           });
 
-         it('should be invalid if not email', function() {
+         it(email, function() {
             input.clear();
             input.sendKeys('xxx');
 

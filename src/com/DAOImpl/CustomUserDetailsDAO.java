@@ -2,13 +2,13 @@ package com.DAOImpl;
 
 import com.Model.CustomUser;
 import com.Model.Role;
+import com.Model.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,21 +16,28 @@ import java.util.List;
  */
 @Repository
 public class CustomUserDetailsDAO {
-    public CustomUser loadUserByUsername(final String name) {
+
+    @SuppressWarnings("unchecked")
+    public CustomUser loadUserByUsername(final String email) {
         Configuration configuration = new AnnotationConfiguration();
         Session session = configuration.configure().buildSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        CustomUser user = new CustomUser();
-        user.setFirstName("kb");
-        user.setLastName("gc");
-        user.setUsername("user1");
-        user.setPassword("10");
-        Role r = new Role();
-        r.setName("ROLE_USER");
-        List<Role> roles = new ArrayList<>();
-        roles.add(r);
 
-        user.setAuthorities(roles);
-        return user;
+        List<User> list = session.createQuery("from User where email = '" + email + "'").list();
+        User user = list.get(0);
+        CustomUser customUser = new CustomUser();
+        customUser.setName(user.getName());
+        customUser.setEmail(user.getEmail());
+        customUser.setId(user.getId());
+        customUser.setPassword(user.getPassword());
+        customUser.setEnabled(true);
+        customUser.setMobile(user.getEmail());
+
+        List<Role> roles = session.createQuery("from Role where role_email = '" + email + "'").list();
+        customUser.setAuthorities(roles);
+        transaction.commit();
+        session.close();
+
+        return customUser;
     }
 }

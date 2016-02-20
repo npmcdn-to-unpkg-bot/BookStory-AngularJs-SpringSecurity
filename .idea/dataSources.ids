@@ -10,8 +10,8 @@
       <schema id="2" parent="1" name="public">
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
-        <introspection-state-number>1282</introspection-state-number>
-        <introspection-timestamp>2016-02-19.19:21:30.638</introspection-timestamp>
+        <introspection-state-number>1342</introspection-state-number>
+        <introspection-timestamp>2016-02-21.02:47:01.242</introspection-timestamp>
       </schema>
       <schema id="3" parent="1" name="pg_catalog">
         <object-id>11</object-id>
@@ -19086,8 +19086,8 @@
         <state-number>1228</state-number>
         <data-type>varchar(25)</data-type>
       </column>
-      <column id="3392" parent="14" name="name">
-        <state-number>1259</state-number>
+      <column id="3392" parent="14" name="role_email">
+        <state-number>1342</state-number>
         <data-type>varchar(25)</data-type>
       </column>
       <column id="3393" parent="15" name="id">
