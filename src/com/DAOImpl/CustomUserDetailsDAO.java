@@ -24,20 +24,31 @@ public class CustomUserDetailsDAO {
         Transaction transaction = session.beginTransaction();
 
         List<User> list = session.createQuery("from User where email = '" + email + "'").list();
-        User user = list.get(0);
-        CustomUser customUser = new CustomUser();
-        customUser.setName(user.getName());
-        customUser.setEmail(user.getEmail());
-        customUser.setId(user.getId());
-        customUser.setPassword(user.getPassword());
-        customUser.setEnabled(true);
-        customUser.setMobile(user.getEmail());
+        if (list.isEmpty()) {
+            CustomUser user = new CustomUser();
+            user.setId(-1L);
+            user.setMobile("-1");
+            user.setEnabled(false);
+            user.setEmail("-1");
+            user.setName("-1");
+            user.setPassword("-1");
+            return user;
+        } else {
+            User user = list.get(0);
+            CustomUser customUser = new CustomUser();
+            customUser.setName(user.getName());
+            customUser.setEmail(user.getEmail());
+            customUser.setId(user.getId());
+            customUser.setPassword(user.getPassword());
+            customUser.setEnabled(true);
+            customUser.setMobile(user.getEmail());
 
-        List<Role> roles = session.createQuery("from Role where role_email = '" + email + "'").list();
-        customUser.setAuthorities(roles);
-        transaction.commit();
-        session.close();
+            List<Role> roles = session.createQuery("from Role where role_email = '" + email + "'").list();
+            customUser.setAuthorities(roles);
+            transaction.commit();
+            session.close();
 
-        return customUser;
+            return customUser;
+        }
     }
 }
