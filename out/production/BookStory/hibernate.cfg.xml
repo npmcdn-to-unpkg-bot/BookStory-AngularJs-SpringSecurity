@@ -5,6 +5,7 @@
 <hibernate-configuration>
     <session-factory name="session">
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="current_session_context_class">thread</property>
         <property name="hibernate.dialect">
             org.hibernate.dialect.PostgreSQLDialect
         </property>
@@ -25,5 +26,6 @@
         <mapping class="com.Model.Author"/>
         <mapping class="com.Model.Genre"/>
         <mapping class="com.Model.Role"/>
+        <mapping class="com.Model.Order"/>
     </session-factory>
 </hibernate-configuration>

@@ -72,6 +72,18 @@ public class CustomUser implements UserDetails {
         this.credentialsNonExpired = credentialsNonExpired;
     }
 
+    public CustomUser() {
+    }
+
+    public CustomUser(Long id, String name, String password, String email, String mobile, boolean enabled) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.mobile = mobile;
+        this.enabled = enabled;
+    }
+
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }

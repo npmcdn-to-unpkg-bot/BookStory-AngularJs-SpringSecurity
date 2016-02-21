@@ -25,4 +25,6 @@ public interface BookService extends BaseService<Book> {
 
     Long order(Long id);
 
+    List<Book> listBooksOfOneUser(String name);
+
 }

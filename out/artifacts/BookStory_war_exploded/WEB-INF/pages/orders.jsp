@@ -4,7 +4,7 @@
 
 </style>
 <head>
-    <title><%= request.getSession().getAttribute("username") %>
+    <title>${username}>
     </title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
@@ -30,10 +30,10 @@
     <script src="${pageContext.request.contextPath}/assets/bower_components/bootbox/bootbox.min.js"
             type="application/javascript"></script>
 </head>
-<body>
+<body ng-controller="userOrdersController" ng-init="getOrderBook()">
 <div>
 <span style="padding-left: 600px"> Welcome to <b>
-    <%= request.getSession().getAttribute("username")%>
+    ${username}
 </b>
     </span>
     <a href="/logout" style="padding-left: 400px">Log Out</a>
@@ -79,5 +79,18 @@
         </table>
     </div>
 </div>
+<script>
+    angular.module('myapp', []).controller("userOrdersController", function ($scope, $http) {
+        $scope.getOrderBook = function () {
+            $http({
+                url: '/books/getBookOfUser'
+            }).success(function (data) {
+                console.log(data);
+            })
+        }
+    });
+
+    angular.bootstrap(document.body, ['myapp']);
+</script>
 </body>
 </html>

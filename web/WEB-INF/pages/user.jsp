@@ -1,14 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-<%--<%--%>
-<%--String username = (String) request.getSession().getAttribute("username");--%>
-<%--if (username == null) {--%>
-<%--response.sendRedirect("/");--%>
-<%--}--%>
-<%--%>--%>
+
 <head>
-    <%--<title><%= request.getSession().getAttribute("username") %>--%>
-    <%--</title>--%>
     <title>${username}</title>
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/assets/bower_components/angularjs/angular.js"
@@ -36,13 +29,12 @@
 </head>
 <body ng-controller="bookController" ng-init="allList()">
 <div>
-    <%--<span style="padding-left: 600px"> Welcome to <b>--%>
-    <%--<%= request.getSession().getAttribute("username")%>--%>
-    <%--</b>--%>
-    <%--</span>--%>
-    <%--<span style="padding-left: 750px" ng-bind=""></span>--%>
-
-    <a href="${pageContext.request.contextPath}/logout" style="padding-left: 700px">Log Out</a>
+    <span style="padding-left: 500px"> Welcome to <b>
+        ${username}
+    </b>
+    </span>
+    <a href="/users/orderlist" style="padding-left: 50px">List of order</a>
+    <a href="${pageContext.request.contextPath}/logout" style="padding-left: 50px">Log Out</a>
 </div>
 
 <div id="Main" style="padding-left: 120px">

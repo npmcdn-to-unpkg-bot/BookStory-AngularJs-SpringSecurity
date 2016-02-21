@@ -33,6 +33,15 @@
             type="application/javascript"></script>
 </head>
 <body ng-controller="bookController" ng-init="allList()">
+<div>
+    <span style="padding-left: 500px"> Welcome to admin  <b>
+        ${username}
+    </b>
+    </span>
+    <span style="padding-left: 400px" ng-bind=""></span>
+
+    <a href="${pageContext.request.contextPath}/logout" style="padding-left: 40px">Log Out</a>
+</div>
 <div id="Main">
 
     <div class="Register_Menu" id="registerMenu" ng-show="isShow">

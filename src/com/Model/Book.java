@@ -56,6 +56,20 @@ public class Book {
         this.genre = genre;
     }
 
+
+//    public Set<User> getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(Set<User> users) {
+//        this.users = users;
+//    }
+//
+//    @ManyToMany
+//    @JoinTable(name = "orders", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+//    private Set<User> users;
+
+
     public Book() {
     }
 

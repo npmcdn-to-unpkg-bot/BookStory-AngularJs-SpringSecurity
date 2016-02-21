@@ -1,6 +1,7 @@
 package com.Model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by dexter on 2/12/16.
@@ -29,6 +30,17 @@ public class User {
         this.mobile = mobile;
         this.password = password;
     }
+
+//    public Set<Book> getBooks() {
+//        return books;
+//    }
+//
+//    public void setBooks(Set<Book> books) {
+//        this.books = books;
+//    }
+//
+//    @ManyToMany(mappedBy = "users")
+//    private Set<Book> books;
 
     public User() {
     }

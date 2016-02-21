@@ -24,4 +24,6 @@ public interface BookDAO extends BaseDAO<Book> {
     Boolean ifExists(String name);
 
     Long order(Long id);
+
+    List<Book> listBooksOfOneUser(String name);
 }

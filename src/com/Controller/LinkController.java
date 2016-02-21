@@ -50,7 +50,7 @@ public class LinkController {
         return new ModelAndView("WEB-INF/pages/register");
     }
 
-    @RequestMapping(value = "/user")
+    @RequestMapping(value = "/users")
     public ModelAndView user() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         CustomUser customUser = null;
@@ -67,9 +67,22 @@ public class LinkController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/orders")
+    @RequestMapping(value = "users/orderlist")
     public ModelAndView orders() {
-        return new ModelAndView("WEB-INF/pages/orders");
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        CustomUser customUser = null;
+        if (principal instanceof CustomUser) {
+            customUser = (CustomUser) principal;
+        }
+        assert customUser != null;
+        String name = customUser.getUsername();
+        System.out.println(name);
+        ModelMap modelMap = new ModelMap();
+        modelMap.put("username", name);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addAllObjects(modelMap);
+        modelAndView.setViewName("WEB-INF/pages/orders");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/accessDenied")

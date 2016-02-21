@@ -57,4 +57,9 @@ public class BookServiceImpl implements BookService {
     public Long order(Long id) {
         return bookDAO.order(id);
     }
+
+    @Override
+    public List<Book> listBooksOfOneUser(String name) {
+        return bookDAO.listBooksOfOneUser(name);
+    }
 }

@@ -2,6 +2,7 @@ package com.Controller;
 
 import com.Model.Author;
 import com.Model.Book;
+import com.Model.CustomUser;
 import com.Model.Genre;
 import com.Service.AuthorService;
 import com.Service.BookService;
@@ -9,6 +10,7 @@ import com.Service.GenreService;
 import com.google.gson.Gson;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -71,5 +73,19 @@ public class BookController {
     public Long order(HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
         return bookService.order(id);
+    }
+
+    @RequestMapping(value = "/getBookOfUser")
+    public String getBookOfUser() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        CustomUser customUser = null;
+        if (principal instanceof CustomUser) {
+            customUser = (CustomUser) principal;
+        }
+        assert customUser != null;
+        String name = customUser.getUsername();
+        List<Book> books = bookService.listBooksOfOneUser(name);
+        Gson gson = new Gson();
+        return gson.toJson(books, books.getClass());
     }
 }

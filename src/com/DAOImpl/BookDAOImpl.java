@@ -4,6 +4,7 @@ import com.DAO.BookDAO;
 import com.Model.Author;
 import com.Model.Book;
 import com.Model.Genre;
+import com.Model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -108,5 +109,16 @@ public class BookDAOImpl implements BookDAO {
         transaction.commit();
         session.close();
         return book.getOrder_count();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Book> listBooksOfOneUser(String name) {
+        Configuration configuration = new Configuration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        User user = (User) session.createQuery("from User where email='" + name + "'").list().get(0);
+        List<Long> orders = session.createQuery("select o.book_id from Order o WHERE o.user_id = " + user.getId()).list();
+        List<Book> books = session.createQuery("select b from Book b where b.id in (:s)").setParameterList("s", orders).list();
+        return boosuks;
     }
 }
