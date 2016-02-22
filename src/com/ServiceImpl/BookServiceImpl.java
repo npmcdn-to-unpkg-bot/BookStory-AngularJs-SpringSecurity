@@ -36,6 +36,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void removeOneBook(Long bookId, String username) {
+        bookDAO.removeOneBook(bookId, username);
+
+    }
+
+    @Override
     public void save(Book book, Genre genre, Author author) {
         bookDAO.save(book, genre, author);
     }
@@ -54,8 +60,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Long order(Long id) {
-        return bookDAO.order(id);
+    public void order(Long bookId, String username) {
+        bookDAO.order(bookId, username);
     }
 
     @Override

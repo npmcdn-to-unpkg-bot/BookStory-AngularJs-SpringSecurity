@@ -101,7 +101,7 @@
         };
         $scope.orderBook = function (id) {
             $http({
-                url: '/books/order',
+                url: '/books/orderBook',
                 params: {
                     id: id
                 },

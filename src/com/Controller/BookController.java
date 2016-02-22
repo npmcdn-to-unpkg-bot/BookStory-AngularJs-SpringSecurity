@@ -69,10 +69,17 @@ public class BookController {
         return bookService.getElementById(id);
     }
 
-    @RequestMapping(value = "/order", method = RequestMethod.POST)
-    public Long order(HttpServletRequest request) {
+    @RequestMapping(value = "/orderBook", method = RequestMethod.POST)
+    public void order(HttpServletRequest request) {
         Long id = Long.parseLong(request.getParameter("id"));
-        return bookService.order(id);
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        CustomUser customUser = null;
+        if (principal instanceof CustomUser) {
+            customUser = (CustomUser) principal;
+        }
+        assert customUser != null;
+        String name = customUser.getUsername();
+        bookService.order(id, name);
     }
 
     @RequestMapping(value = "/getBookOfUser")
@@ -87,5 +94,18 @@ public class BookController {
         List<Book> books = bookService.listBooksOfOneUser(name);
         Gson gson = new Gson();
         return gson.toJson(books, books.getClass());
+    }
+
+    @RequestMapping(value = "/removeOneBook")
+    public void removeOneBook(HttpServletRequest request) {
+        Long book_id = Long.parseLong(request.getParameter("id"));
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        CustomUser customUser = null;
+        if (principal instanceof CustomUser) {
+            customUser = (CustomUser) principal;
+        }
+        assert customUser != null;
+        String name = customUser.getUsername();
+        bookService.removeOneBook(book_id, name);
     }
 }

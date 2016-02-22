@@ -1,14 +1,8 @@
 package com.DAOImpl;
 
 import com.DAO.BookDAO;
-import com.Model.Author;
-import com.Model.Book;
-import com.Model.Genre;
-import com.Model.User;
-import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import com.Model.*;
+import org.hibernate.*;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
@@ -62,6 +56,27 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
+    public void removeOneBook(Long bookId, String username) {
+        Configuration configuration = new AnnotationConfiguration();
+        session = configuration.configure().buildSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        User user = (User) session.createQuery("from User where email='" + username + "'").list().get(0);
+        Long user_id = user.getId();
+        Query query = session.createQuery("from Order o where o.book_id=:b_id and o.user_id =:u_id")
+                .setParameter("b_id", bookId)
+                .setParameter("u_id", user_id);
+        if (query.list().size() > 0) {
+            Order order = (Order) query.list().get(0);
+            session.delete(order);
+            transaction.commit();
+            session.close();
+        } else {
+            transaction.commit();
+            session.close();
+        }
+    }
+
+    @Override
     public void save(Book book, Genre genre, Author author) {
         Configuration configuration = new AnnotationConfiguration();
         session = configuration.configure().buildSessionFactory().openSession();
@@ -97,18 +112,36 @@ public class BookDAOImpl implements BookDAO {
         return books.size() > 0;
     }
 
-    @Override
-    public Long order(Long id) {
-        Configuration configuration = new AnnotationConfiguration();
+    @SuppressWarnings("unchecked")
+    public void order(Long bookId, String username) {
+        Configuration configuration = new Configuration();
         session = configuration.configure().buildSessionFactory().openSession();
         transaction = session.beginTransaction();
-        Book book = getElementById(id);
-        Long order_count = book.getOrder_count();
-        book.setOrder_count(order_count + 1);
-        session.update(book);
-        transaction.commit();
-        session.close();
-        return book.getOrder_count();
+        User user = (User) session.createQuery("from User where email='" + username + "'").list().get(0);
+        Long user_id = user.getId();
+        Query query = session.createQuery("from Order o where o.book_id=:b_id and o.user_id =:u_id")
+                .setParameter("b_id", bookId)
+                .setParameter("u_id", user_id);
+
+        Configuration configuration1 = new AnnotationConfiguration();
+        Session session1 = configuration1.configure().buildSessionFactory().openSession();
+        Transaction transaction1 = session1.beginTransaction();
+        Book book = getElementById(bookId);
+        book.setOrder_count(book.getOrder_count() + 1);
+        session1.update(book);
+        transaction1.commit();
+        session1.close();
+
+        if (query.list().size() == 0) {
+            Order order = new Order(user_id, bookId);
+            session.save(order);
+            transaction.commit();
+            session.close();
+        } else {
+            transaction.commit();
+            session.close();
+        }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -119,6 +152,8 @@ public class BookDAOImpl implements BookDAO {
         User user = (User) session.createQuery("from User where email='" + name + "'").list().get(0);
         List<Long> orders = session.createQuery("select o.book_id from Order o WHERE o.user_id = " + user.getId()).list();
         List<Book> books = session.createQuery("select b from Book b where b.id in (:s)").setParameterList("s", orders).list();
-        return boosuks;
+        transaction.commit();
+        session.close();
+        return books;
     }
 }

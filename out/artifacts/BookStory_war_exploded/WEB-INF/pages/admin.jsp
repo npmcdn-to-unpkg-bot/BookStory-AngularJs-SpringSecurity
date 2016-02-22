@@ -163,7 +163,7 @@
                 <td ng-bind="contact.Book.created_date"></td>
                 <td ng-bind="contact.Book.order_count"></td>
                 <td>
-                    <span class="glyphicon glyphicon-remove-circle" ng-click="removeBook(contact.Book.id)"
+                    <span class="glyphicon glyphicon-remove" ng-click="removeBook(contact.Book.id)"
                           style="cursor: pointer;"></span>
                 </td>
             </tr>

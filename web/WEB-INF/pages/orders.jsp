@@ -32,11 +32,12 @@
 </head>
 <body ng-controller="userOrdersController" ng-init="getOrderBook()">
 <div>
-<span style="padding-left: 600px"> Welcome to <b>
+<span style="padding-left: 500px"> Welcome to <b>
     ${username}
 </b>
     </span>
-    <a href="/logout" style="padding-left: 400px">Log Out</a>
+    <a href="/users" style="padding-left: 50px">Back</a>
+    <a href="/logout" style="padding-left: 50px">Log out</a>
 </div>
 <div id="Main" style="padding-left: 120px">
     <div id="table">
@@ -52,6 +53,7 @@
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group" id="#id_form_group" style="padding-left: 150px">
                             <input type="text" class="form-control" placeholder="Search" id="search"
+                                   ng-model="searchText"
                                    autocomplete="off">
                         </div>
                     </form>
@@ -73,7 +75,18 @@
             </thead>
 
             <tbody id="tbodyId">
-            <tr>
+            <tr ng-repeat="contact in contacts | filter: searchText">
+                <td ng-bind="contact.id"></td>
+                <td ng-bind="contact.name"></td>
+                <td ng-bind="contact.author.firstName"></td>
+                <td ng-bind="contact.language"></td>
+                <td ng-bind="contact.genre.name"></td>
+                <td ng-bind="contact.created_date"></td>
+                <td ng-bind="contact.order_count" id='" + contact.Book.order_count + "'></td>
+                <td>
+                    <span class="glyphicon glyphicon-remove" ng-click="removeOrderBook(contact.id)"
+                          style="cursor: pointer;" id='" + contact.Book.id + "'></span>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -81,10 +94,24 @@
 </div>
 <script>
     angular.module('myapp', []).controller("userOrdersController", function ($scope, $http) {
+        $scope.contacts = [];
         $scope.getOrderBook = function () {
             $http({
                 url: '/books/getBookOfUser'
             }).success(function (data) {
+                $scope.contacts = data;
+                console.log(data);
+            })
+        };
+        $scope.removeOrderBook = function (id) {
+            $http({
+                url: '/books/removeOneBook',
+                method: 'POST',
+                params: {
+                    id: id
+                }
+            }).success(function (data) {
+                angular.reloadWithDebugInfo();
                 console.log(data);
             })
         }

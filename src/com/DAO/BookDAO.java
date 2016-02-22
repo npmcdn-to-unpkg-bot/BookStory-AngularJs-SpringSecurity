@@ -17,13 +17,15 @@ public interface BookDAO extends BaseDAO<Book> {
 
     void remove(Long id);
 
+    void removeOneBook(Long bookId, String username);
+
     void save(Book book, Genre genre, Author author);
 
     void update(Book book);
 
     Boolean ifExists(String name);
 
-    Long order(Long id);
+    void order(Long bookId, String username);
 
     List<Book> listBooksOfOneUser(String name);
 }
