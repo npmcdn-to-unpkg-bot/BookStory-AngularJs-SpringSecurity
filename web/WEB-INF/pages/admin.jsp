@@ -265,6 +265,7 @@
                     id: id
                 }
             }).success(function (data) {
+                angular.relo
                 console.log(data);
             })
         };

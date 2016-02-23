@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dexter
-  Date: 2/12/16
-  Time: 1:32 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Login Page</title>
@@ -33,20 +27,20 @@
     <script src="${pageContext.request.contextPath}/assets/bower_components/bootbox/bootbox.min.js"
             type="application/javascript"></script>
 </head>
-<body>
+<body ng-controller="myController">
 <div class="Register_Menu" id="registerMenu" style="padding-top: 77px">
     <h4 style="padding-left: 595px">
         <pre style="width: 200px; text-align: center">Register Form</pre>
     </h4>
     <br>
 
-    <form style="padding-left: 600px" action="/users/check" method="post">
-
-        <div class="input-group">
+    <form name='loginForm'
+          action="<c:url value='/j_spring_security_check' />" method='POST' style="padding-left: 600px">
+        <div class=" input-group">
             Email
             <div class="input-group">
-                <input type="tel" name="email" maxlength="50" id="email"
-                       placeholder="Email" class="form-control" ng-model="user.email">
+                <input type="text" name="username" maxlength="50" id="username"
+                       placeholder="Email" class="form-control" ng-model="user.username">
             </div>
         </div>
 
@@ -62,7 +56,7 @@
 
         <div class="input-group" id="id_form_click">
             <div class="controls">
-                <input type="submit" ng-disabled="user.password  && user.email" class="btn" value="Ok">
+                <input type="submit" class="btn" value="Ok"/>
                 <button type="reset" class="btn">Reset</button>
             </div>
         </div>
@@ -71,6 +65,21 @@
     </form>
 </div>
 <script>
+    angular.module('myapp', []).controller('myController', function ($http, $scope) {
+        <%--$scope.checkLogin = function (user) {--%>
+        <%--$http({--%>
+        <%--url: 'j_spring_security_check',--%>
+        <%--method: 'POST',--%>
+        <%--params: user--%>
+        <%--}).success(function (data) {--%>
+        <%--&lt;%&ndash;&lt;%&ndash;%>--%>
+        <%--&lt;%&ndash;response.sendRedirect("/users");&ndash;%&gt;--%>
+        <%--&lt;%&ndash;%>&ndash;%&gt;--%>
+        <%--})--%>
+        <%--};--%>
+    });
+
+    angular.bootstrap(document, ['myapp']);
 </script>
 </body>
 </html>

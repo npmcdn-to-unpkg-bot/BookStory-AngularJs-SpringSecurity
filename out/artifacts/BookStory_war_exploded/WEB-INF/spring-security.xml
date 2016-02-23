@@ -12,6 +12,10 @@
         <intercept-url pattern="/admin**/**" access="ROLE_ADMIN"/>
         <intercept-url pattern="/users**/**" access="ROLE_USER"/>
         <logout logout-success-url="/" logout-url="/logout" invalidate-session="true"/>
+        <form-login login-page="/login" default-target-url="/" authentication-failure-url="/error"
+                    username-parameter="username"
+                    password-parameter="password"
+        />
     </http>
 
     <authentication-manager>
