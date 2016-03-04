@@ -1,86 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34d5ab3e-cfa5-4aaa-a45c-14702971dac1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/hibernate.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/BookStory_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/BookStory_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/dexter.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/dexter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Hibernate_4_2_2_4_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Hibernate_4_2_2_4_2_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Spring_4_1_6_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Spring_4_1_6_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Spring_MVC_4_1_6_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Spring_MVC_4_1_6_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Spring_Security_3_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Spring_Security_3_2_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/antlr_2_7_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/antlr_2_7_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_2_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jstl_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jstl_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_9_4_1202_jdbc4_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_9_4_1202_jdbc4_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/servlet_api.xml" afterPath="$PROJECT_DIR$/.idea/libraries/servlet_api.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BookStory.iml" afterPath="$PROJECT_DIR$/BookStory.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/orm.xml" afterPath="$PROJECT_DIR$/META-INF/orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ConfigurationDataSource.java" afterPath="$PROJECT_DIR$/src/com/ConfigurationDataSource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Controller/AuthorController.java" afterPath="$PROJECT_DIR$/src/com/Controller/AuthorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Controller/BookController.java" afterPath="$PROJECT_DIR$/src/com/Controller/BookController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Controller/GenreController.java" afterPath="$PROJECT_DIR$/src/com/Controller/GenreController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Controller/UserController.java" afterPath="$PROJECT_DIR$/src/com/Controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/DAO/AuthorDAO.java" afterPath="$PROJECT_DIR$/src/com/DAO/AuthorDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/DAO/BaseDAO.java" afterPath="$PROJECT_DIR$/src/com/DAO/BaseDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/DAO/GenreDAO.java" afterPath="$PROJECT_DIR$/src/com/DAO/GenreDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/DAO/UserDAO.java" afterPath="$PROJECT_DIR$/src/com/DAO/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/DAOImpl/AuthorDAOImpl.java" afterPath="$PROJECT_DIR$/src/com/DAOImpl/AuthorDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/DAOImpl/BookDAOImpl.java" afterPath="$PROJECT_DIR$/src/com/DAOImpl/BookDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/DAOImpl/CustomUserDetailsDAO.java" afterPath="$PROJECT_DIR$/src/com/DAOImpl/CustomUserDetailsDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/DAOImpl/GenreDAOImpl.java" afterPath="$PROJECT_DIR$/src/com/DAOImpl/GenreDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/DAOImpl/UserDAOImpl.java" afterPath="$PROJECT_DIR$/src/com/DAOImpl/UserDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Model/Author.java" afterPath="$PROJECT_DIR$/src/com/Model/Author.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Model/CustomUser.java" afterPath="$PROJECT_DIR$/src/com/Model/CustomUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Model/Genre.java" afterPath="$PROJECT_DIR$/src/com/Model/Genre.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Model/Order.java" afterPath="$PROJECT_DIR$/src/com/Model/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Model/Role.java" afterPath="$PROJECT_DIR$/src/com/Model/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Model/User.java" afterPath="$PROJECT_DIR$/src/com/Model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Service/AuthorService.java" afterPath="$PROJECT_DIR$/src/com/Service/AuthorService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Service/BaseService.java" afterPath="$PROJECT_DIR$/src/com/Service/BaseService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Service/GenreService.java" afterPath="$PROJECT_DIR$/src/com/Service/GenreService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Service/UserService.java" afterPath="$PROJECT_DIR$/src/com/Service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ServiceImpl/AuthorServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/ServiceImpl/AuthorServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ServiceImpl/CustomUserService.java" afterPath="$PROJECT_DIR$/src/com/ServiceImpl/CustomUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ServiceImpl/GenreServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/ServiceImpl/GenreServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ServiceImpl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/ServiceImpl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/SpringSecurity/CustomAuthenticationProvider.java" afterPath="$PROJECT_DIR$/src/com/SpringSecurity/CustomAuthenticationProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/SpringSecurity/MyUserDetailsService.java" afterPath="$PROJECT_DIR$/src/com/SpringSecurity/MyUserDetailsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/SpringSecurity/SecurityConfig.java" afterPath="$PROJECT_DIR$/src/com/SpringSecurity/SecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/pages/403.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/403.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/pages/admin.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/pages/config.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/pages/error.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/error.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/pages/login.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/pages/orders.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/orders.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/pages/register.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/register.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/pages/user.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/user.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/spring-security.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/spring-security.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/test.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/test.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-    </list>
+    <list default="true" id="34d5ab3e-cfa5-4aaa-a45c-14702971dac1" name="Default" comment="" />
     <ignored path="BookStory.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -167,8 +88,8 @@
       <file leaf-file-name="WebsocketConfig.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Socket/WebsocketConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33110368">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.48160535">
+              <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -180,10 +101,20 @@
         <entry file="file://$PROJECT_DIR$/src/com/Socket/MyHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfigurationDataSource.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ConfigurationDataSource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1034,12 +965,19 @@
       <workItem from="1456750100659" duration="23000" />
       <workItem from="1456750432008" duration="1078000" />
       <workItem from="1456820257485" duration="5429000" />
-      <workItem from="1457117410457" duration="1676000" />
+      <workItem from="1457117410457" duration="1883000" />
     </task>
+    <task id="LOCAL-00001" summary="fix the bug">
+      <created>1457119239998</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1457119239998</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346678000" />
+    <option name="totallyTimeSpent" value="346885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-3" width="1370" height="748" extended-state="6" />
@@ -1218,13 +1156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.742671">
           <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ConfigurationDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26955074">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1521,17 +1452,25 @@
     <entry file="file://$PROJECT_DIR$/src/com/Socket/MyHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ConfigurationDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Socket/WebsocketConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33110368">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.48160535">
+          <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
