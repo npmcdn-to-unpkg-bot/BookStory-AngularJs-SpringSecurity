@@ -25,7 +25,7 @@ public class BookDAOImpl implements BookDAO {
         transaction = session.beginTransaction();
         String sql = ("select b.id,  b.author_id,  b.order_count, a.firstname || ',' || a.lastname AS FIO, b.name, b.genre_id, g.name, b.language, b.created_date from books b" +
                 " inner join authors a ON a.id = b.author_id " +
-                " inner  join genres g ON g.id = b.genre_id");
+                " inner  join genres g ON g.id = b.genre_id ORDER BY b.id ASC ");
 
         SQLQuery sqlQuery = session.createSQLQuery(sql);
         sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
@@ -151,7 +151,7 @@ public class BookDAOImpl implements BookDAO {
         transaction = session.beginTransaction();
         User user = (User) session.createQuery("from User where email='" + name + "'").list().get(0);
         List<Long> orders = session.createQuery("select o.book_id from Order o WHERE o.user_id = " + user.getId()).list();
-        List<Book> books = session.createQuery("select b from Book b where b.id in (:s)").setParameterList("s", orders).list();
+        List<Book> books = session.createQuery("select b from Book b where b.id in (:s) order by b.id asc").setParameterList("s", orders).list();
         transaction.commit();
         session.close();
         return books;

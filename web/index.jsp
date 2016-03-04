@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <style>
 </style>
@@ -28,10 +29,20 @@
     <script src="${pageContext.request.contextPath}/assets/bower_components/bootbox/bootbox.min.js"
             type="application/javascript"></script>
 </head>
+
+<%--Current Locale : ${pageContext.response.locale}--%>
 <body ng-controller="bookController" ng-init="allList()">
 <a href="/users" style="padding-left: 1275px">Log in</a>
+<a href="?lang=uz">Uzbek</a>|<a href="?lang=en">English</a>
+<br>
+<h5>
+    Login text : <spring:message code="login"/>
+    <br>
+    Logout text : <spring:message code="logout"/>
+</h5>
 
 <div id="Main" style="padding-left: 120px">
+
     <div id="table">
         <nav class="navbar navbar-default" id="id_navbar-default">
             <div class="container-fluid">
