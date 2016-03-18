@@ -33,12 +33,12 @@
 <%--Current Locale : ${pageContext.response.locale}--%>
 <body ng-controller="bookController" ng-init="allList()">
 <a href="/users" style="padding-left: 1275px">Log in</a>
-<a href="?lang=uz">Uzbek</a>|<a href="?lang=en">English</a>
+<%--<a href="?lang=uz">Uzbek</a>|<a href="?lang=en">English</a>--%>
 <br>
 <h5>
-    Login text : <spring:message code="login"/>
-    <br>
-    Logout text : <spring:message code="logout"/>
+    <%--Login text : Login--%>
+    <%--<br>--%>
+    <%--Logout text : Log out--%>
 </h5>
 
 <div id="Main" style="padding-left: 120px">

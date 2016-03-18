@@ -19,30 +19,4 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.
     </bean>
     <mvc:resources location="/assets/" mapping="/assets/**"/>
     <mvc:annotation-driven/>
-
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="WEB-INF/messages"/>
-        <property name="defaultEncoding" value="UTF-8"/>
-    </bean>
-
-    <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-        <property name="paramName" value="lang"/>
-    </bean>
-
-    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-        <property name="interceptors">
-            <list>
-                <ref bean="localeChangeInterceptor"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-        <property name="defaultLocale" value="en"/>
-    </bean>
-
-    <websocket:handlers>
-        <websocket:mapping path="/myHandler" handler="myHandler"/>
-    </websocket:handlers>
-  <bean id="myHandler" class="com.Socket.WebsocketConfig"></bean>
 </beans>

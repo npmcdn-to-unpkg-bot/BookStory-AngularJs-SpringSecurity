@@ -15,6 +15,7 @@
           <element id="library" level="project" name="gson-2.2.2" />
           <element id="library" level="project" name="postgresql-9.4-1202.jdbc4.jar" />
           <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="module" name="JUnit4" module-name="BookStory" />
         </element>
       </element>
     </root>

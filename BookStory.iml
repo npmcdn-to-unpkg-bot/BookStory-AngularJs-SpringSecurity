@@ -4,7 +4,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="session" value="dcaa4df1-8bd5-4b3f-ac9e-f8e286ee8dda" />
+          <unit-entry name="session" value="76e5982a-c6f8-4b53-8750-257d671b8e58" />
         </datasource-map>
         <naming-strategy-map>
           <unit-entry name="hibernate.cfg.xml" />
@@ -27,7 +27,6 @@
         <fileset id="fileset" name="spring-security" removed="false">
           <file>file://$MODULE_DIR$/web/WEB-INF/spring-security.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/spring-security.xml</file>
-          <file>file://$MODULE_DIR$/web/WEB-INF/pages/config.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -59,5 +58,15 @@
     <orderEntry type="library" name="jstl-1.2" level="project" />
     <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="module-library">
+      <library name="JUnit4">
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/" />
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/hamcrest-core-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -14,7 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.DatatypeConverter;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -106,5 +111,20 @@ public class BookController {
         assert customUser != null;
         String name = customUser.getUsername();
         bookService.removeOneBook(book_id, name);
+    }
+
+    @RequestMapping(value = "/saveImage")
+    public void saveImage() {
+        try {
+            // remove data:image/png;base64, and then take rest sting
+            String img64 = "64 base image data here";
+            byte[] decodedBytes = DatatypeConverter.parseBase64Binary(img64);
+            BufferedImage bfi = ImageIO.read(new ByteArrayInputStream(decodedBytes));
+            File outputfile = new File("saved.png");
+            ImageIO.write(bfi, "png", outputfile);
+            bfi.flush();
+        } catch (Exception e) {
+            //Implement exception code
+        }
     }
 }

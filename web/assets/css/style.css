@@ -4,8 +4,26 @@ table, th, td {
 }
 
 .modal-content {
-    margin-top: 200px;
-    width: 333px;
+    margin-left: -150px;
+    width: 1000px;
+    height: auto;
+}
+
+#bugName {
+    width: 100%;
+    max-width: 100%;
+}
+
+#bug {
+    width: 950px;
+    text-align: center;
+}
+
+.bootbox canvas {
+    padding-left: 200px;
+    max-width: 100%;
+    height: auto;
+    width: 100%;
 }
 
 .modal-body {
@@ -162,5 +180,9 @@ a {
 }
 
 .modal-dialog {
-    padding-left: 177px;
+    padding-left: 0px;
+}
+
+.fixCenter {
+    margin-left: 400px;
 }

@@ -94,4 +94,9 @@ public class LinkController {
     public ModelAndView error() {
         return new ModelAndView("WEB-INF/pages/error");
     }
+
+    @RequestMapping(value = "/canvas")
+    public ModelAndView canvas() {
+        return new ModelAndView("WEB-INF/pages/canvas");
+    }
 }
